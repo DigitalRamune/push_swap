@@ -107,7 +107,7 @@ int	ft_check_duplicate(t_list **stack_a, int nb, char **arr, int index)
 	{
 		if (check->data == nb)
 		{
-			printf("Error\n");
+			write(2, "Error\n", 6);
 			while (arr[index])
 			{
 				free(arr[index]);

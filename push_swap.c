@@ -55,7 +55,7 @@ int	main(int argc, char *argv[])
 		return (ft_lstclear_all(&stack_a, &stack_b, &param, &operations), 0);
 	i = argc;
 	if (argc <= 1)
-		printf("Error\n");
+		write(2, "Error\n", 6);
 	while (--i >= z)
 	{
 		if (ft_split(argv[i], ' ', &stack_a) == NULL)

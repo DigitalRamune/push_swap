@@ -70,7 +70,7 @@ int	ft_result_after_check(char **argv, p_list **param)
 	result = ft_check_all(argv, param);
 	if (result == -1)
 	{
-		printf("Error\n");
+		write(2, "Error\n", 6);
 		return (0);
 	}
 	else if (result == 1)

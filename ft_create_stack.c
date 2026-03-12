@@ -30,7 +30,7 @@ void	ft_create_stack(t_list **stack_a, char **argv, int i, int z)
 			{
 				printf("je rentre dans la boucle 2\n");
 				if (check->data == f)
-					printf("Error\n");
+					write(2, "Error\n", 6);
 				check = check->next;
 			}
 			check = *stack_a;
