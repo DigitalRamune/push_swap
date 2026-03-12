@@ -12,15 +12,16 @@
 
 #include "../libft.h"
 
-void	ft_swap(t_list *stack_a, int which)
+void	ft_swap(t_list **stack_a, int which)
 {
-	int	top;
-	int	bottom;
+	t_list	*second;
 
-	top = stack_a->data;
-	bottom = stack_a->next->data;
-	stack_a->next->data = top;
-	stack_a->data = bottom;
+	if (!stack_a || !(*stack_a) || !(*stack_a)->next)
+        return ;
+	second = (*stack_a)->next;
+	(*stack_a)->next = second->next;
+	second->next = (*stack_a);
+	*stack_a = second;
 	if (which == 1)
 		write(1, "sb\n", 3);
 	else if (which == 0)
