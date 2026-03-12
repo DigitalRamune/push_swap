@@ -6,7 +6,7 @@
 /*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 16:28:05 by inaciri           #+#    #+#             */
-/*   Updated: 2026/03/12 16:29:24 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/12 16:57:59 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int	main(int argc, char *argv[])
 
 	stack_a = NULL;
 	stack_b = NULL;
+	operations = NULL;
+	param = NULL;
 	ft_init_lists(&operations, &param);
 	z = ft_result_after_check(argv, &param);
 	if (z == 0)
@@ -48,18 +50,7 @@ int	main(int argc, char *argv[])
 	i = argc - 1;
 	ft_create_stack(&stack_a, argv, i, z);
 	if (compute_disorder(&stack_a) == 0)
-	{
-		printf("La liste est dans l'ordre.\n");
-		return 0;
-	}
-	printf("STACK A BEFORE: \n\n");
-	printlist(stack_a);
+		ft_lstclear_all(&stack_a, &stack_b, &param, &operations);
 	set_alg(&param, &stack_a, &stack_b, &operations);
-	printf("STACK A : \n\n");
-	printlist(stack_a);
-	free(param->choice);
-	ft_lstclear(&stack_a);
-	ft_lstclear(&stack_b);
-	ft_lstclear_op(&operations);
-	ft_lstclear_param(&param);
+	ft_lstclear_all(&stack_a, &stack_b, &param, &operations);
 }

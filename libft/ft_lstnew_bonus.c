@@ -6,7 +6,7 @@
 /*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 13:42:15 by ffeder            #+#    #+#             */
-/*   Updated: 2026/03/11 16:45:52 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/12 16:53:59 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,6 @@ p_list	*ft_lstnew_param(int data)
 	elem->medium = data;
 	elem->simple = data;
 	elem->next = NULL;
+	elem->choice = NULL;
 	return (elem);
 }

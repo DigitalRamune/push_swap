@@ -6,7 +6,7 @@
 /*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 12:30:58 by ffeder            #+#    #+#             */
-/*   Updated: 2026/03/12 16:21:10 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/12 16:48:03 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ typedef	struct param_list
 	struct param_list	*next;
 }						p_list;
 
+void	ft_lstclear_all(t_list **stack_a, t_list **stack_b, p_list **param, t_oper **op);
 
 t_oper	*ft_lstnew_op(int data);
 void	ft_lstadd_front_op(t_oper **lst, t_oper *new);
