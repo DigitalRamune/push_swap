@@ -6,7 +6,7 @@
 /*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 16:28:05 by inaciri           #+#    #+#             */
-/*   Updated: 2026/03/12 16:57:59 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/12 17:14:20 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,11 @@ int	main(int argc, char *argv[])
 		ft_split(argv[i], ' ', &stack_a);
 	i = argc - 1;
 	ft_create_stack(&stack_a, argv, i, z);
-	if (compute_disorder(&stack_a) == 0)
+	if (ft_lstsize(stack_a) <= 1 ||compute_disorder(&stack_a) == 0)
+	{
 		ft_lstclear_all(&stack_a, &stack_b, &param, &operations);
+		return (0);
+	}
 	set_alg(&param, &stack_a, &stack_b, &operations);
 	ft_lstclear_all(&stack_a, &stack_b, &param, &operations);
 }
