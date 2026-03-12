@@ -6,7 +6,7 @@
 /*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 12:30:58 by ffeder            #+#    #+#             */
-/*   Updated: 2026/03/12 12:57:34 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/12 13:10:03 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,5 +154,6 @@ void	ft_bench(t_oper **op, p_list **param, t_list **stack_a, t_list **stack_b);
 
 void	ft_create_stack(t_list **stack_a, char **argv, int i, int z);
 void	ft_init_lists(t_oper **operations, p_list **param);
+int		ft_result_after_check(char **argv, p_list **param);
 
 #endif

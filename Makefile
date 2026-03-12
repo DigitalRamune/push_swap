@@ -6,7 +6,7 @@
 #    By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/22 16:26:23 by inaciri           #+#    #+#              #
-#    Updated: 2026/03/12 12:33:18 by inaciri          ###   ########.fr        #
+#    Updated: 2026/03/12 13:13:38 by inaciri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ ${NAME}: ${OBJS}
 	@${CC} ${CFLAGS} -c $< -o $@
 	
 run:
-	./$(NAME) --complex $$(shuf -i 1-10000 -n 100)
+	./$(NAME) --bench $$(shuf -i 1-10000 -n 20)
 clean :
 	rm -rf ${OBJS}
 

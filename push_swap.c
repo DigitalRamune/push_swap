@@ -6,7 +6,7 @@
 /*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 16:28:05 by inaciri           #+#    #+#             */
-/*   Updated: 2026/03/12 12:58:51 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/12 13:12:10 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	main(int argc, char *argv[])
 {
 	int		i;
 	int		z;
-	int		result;
 	t_list	*stack_a;
 	t_list	*stack_b;
 	t_oper	*operations;
@@ -38,15 +37,9 @@ int	main(int argc, char *argv[])
 	stack_a = NULL;
 	stack_b = NULL;
 	ft_init_lists(&operations, &param);
-	result = ft_check_all(argv, &param);
-	z = 1;
-	if (result == -1)
-	{
-		printf("Error");
-		return 0;
-	}
-	else if (result == 1)
-		z = 2;
+	z = ft_result_after_check(argv, &param);
+	if (z == 0)
+		return (0);
 	i = argc;
 	if (argc <= 1)
 		printf("Error\n");

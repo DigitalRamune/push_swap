@@ -6,7 +6,7 @@
 /*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 13:47:46 by ffeder            #+#    #+#             */
-/*   Updated: 2026/03/11 17:27:26 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/12 13:09:41 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,20 @@ int	ft_check_all(char **argv, p_list **param)
 		i++;
 	}
 	return (1 + z);
+}
+
+int	ft_result_after_check(char **argv, p_list **param)
+{
+	int	result;
+
+	result = ft_check_all(argv, param);
+	if (result == -1)
+	{
+		printf("Error\n");
+		return (0);
+	}
+	else if (result == 1)
+		return (2);
+	else
+		return (1);
 }
