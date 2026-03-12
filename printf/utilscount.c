@@ -1,34 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_simple_alg.c                                    :+:      :+:    :+:   */
+/*   utilscount.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ffeder <ffeder@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/10 17:15:11 by ffeder            #+#    #+#             */
-/*   Updated: 2026/03/12 15:29:32 by ffeder           ###   ########.fr       */
+/*   Created: 2025/11/21 16:26:54 by ffeder            #+#    #+#             */
+/*   Updated: 2025/11/23 15:42:55 by ffeder           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "ft_printf.h"
 
-void	ft_simple_alg(t_list **stack_a, t_list **stack_b, t_oper **operation)
+size_t	ft_strlen(char *str)
 {
-	int	index;
-	int	size;
+	int	i;
 
-	size = ft_lstsize(*stack_a);
-	index = 0;
-	while (index < size - 1)
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+size_t	ft_printadress(void *p)
+{
+	if (!p)
+		return (ft_putstr("(nil)"));
+	ft_putstr("0x");
+	return (ft_printhexa((unsigned long long)p, 1) + 2);
+}
+
+size_t	ft_hexcount(unsigned long long hex)
+{
+	int	i;
+
+	i = 1;
+	while (hex >= 16)
 	{
-		find_min(stack_a, operation);
-		ft_push(stack_a, stack_b, operation, 0);
-		index++;
+		hex = hex / 16;
+		i++;
 	}
-	index = 0;
-	while (index < size - 1)
-	{
-		ft_push(stack_b, stack_a, operation, 1);
-		index++;
-	}
+	return (i);
 }

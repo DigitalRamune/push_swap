@@ -6,7 +6,7 @@
 /*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 13:47:46 by ffeder            #+#    #+#             */
-/*   Updated: 2026/03/12 13:09:41 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/12 14:04:31 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ int	ft_check_all(char **argv, p_list **param)
 	z = 0;
 	if (ft_detect(argv[i], param) == 0)
 	{
-		// if (argv[1][0] == '-' && (ft_atoi(argv[1]) == 0))
-		// 	return (-1);
 		if (argv[1][0] != '0' && (ft_atoi(argv[1]) == 0))
 			return (-1);
 		z = 1;

@@ -6,7 +6,7 @@
 /*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 12:30:58 by ffeder            #+#    #+#             */
-/*   Updated: 2026/03/12 13:40:37 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/12 16:21:10 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,10 @@ typedef	struct param_list
 
 t_oper	*ft_lstnew_op(int data);
 void	ft_lstadd_front_op(t_oper **lst, t_oper *new);
+void	ft_lstclear_op(t_oper **lst);
 
 p_list	*ft_lstnew_param(int data);
+void	ft_lstclear_param(p_list **lst);
 void	ft_lstadd_front_param(p_list **lst, p_list *new);
 
 t_list	*ft_lstnew(int data);
@@ -106,7 +108,7 @@ int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
-void	ft_lstclear(t_list **lst, void (*del)(void*));
+void	ft_lstclear(t_list **lst);
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
@@ -122,17 +124,17 @@ void	set_alg(p_list **param, t_list **stack_a, t_list **stack_b, t_oper **op);
 char	*ft_strdup(const char *s);
 
 void	ft_simple_alg(t_list **stack_a, t_list **stack_b, t_oper **operation);
-void	place_min_at_top(t_list **next_p, int index, int which, t_oper **operation);
-void	find_min(t_list **next_p, int which, t_oper **operation);
+void	place_min_at_top(t_list **next_p, int index, t_oper **operation);
+void	find_min(t_list **next_p, t_oper **operation);
 int		find_min_score(t_list **stack_a, int index_score, int max_data, int size);
 int		find_max(t_list **stack_a);
 
 void	ft_medium_alg(t_list **stack_a, t_list **stack_b, t_oper **operation);
 int		ft_bucket_no(int data, int size, int max);
 void	top_nb_min_in_score(t_list **stack_a, t_list **stack_b, int max_score, t_oper **operation);
-void	find_max2(t_list **next_p, int which, t_oper **operation);
-int		find_score(t_list **stack_a, int index_score, int size);
-void	place_max_at_top(t_list **next_p, int index, int which, t_oper **operation);
+void	find_max2(t_list **next_p, t_oper **operation);
+int		find_score(t_list **stack_a, int index_score, int size, int *temp_min_data);
+void	place_max_at_top(t_list **next_p, int index, t_oper **operation);
 void	order_alg(int temp_min_data, int index, t_list **stack_a, t_list **stack_b, t_oper **operation);
 t_list	**ft_split(char const *s, char c, t_list **stack_a);
 

@@ -6,7 +6,7 @@
 /*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 15:38:01 by ffeder            #+#    #+#             */
-/*   Updated: 2026/03/11 16:45:45 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/12 16:11:48 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,8 +115,10 @@ t_list	**ft_split(char const *s, char c, t_list **stack_a)
 	{
 		nb = ft_atoi(arr[i]);
 		ft_lstadd_front(stack_a, ft_lstnew(nb));
+		free(arr[i]);
 		i++;
 	}
 	free(arr);
+	arr = NULL;
 	return (stack_a);
 }

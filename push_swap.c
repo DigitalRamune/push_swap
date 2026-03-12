@@ -6,7 +6,7 @@
 /*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 16:28:05 by inaciri           #+#    #+#             */
-/*   Updated: 2026/03/12 13:47:26 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/12 16:29:24 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,9 @@ int	main(int argc, char *argv[])
 	set_alg(&param, &stack_a, &stack_b, &operations);
 	printf("STACK A : \n\n");
 	printlist(stack_a);
+	free(param->choice);
+	ft_lstclear(&stack_a);
+	ft_lstclear(&stack_b);
+	ft_lstclear_op(&operations);
+	ft_lstclear_param(&param);
 }

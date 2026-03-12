@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ffeder <ffeder@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 13:29:54 by ffeder            #+#    #+#             */
-/*   Updated: 2026/03/11 16:43:26 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/12 15:20:10 by ffeder           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,55 +67,5 @@ void	ft_rotate(t_list **stack_a, t_oper **operation, int which)
 		(*operation)->rb += 1;
 		if ((*operation)->print == 0)
 			printf("rb\n");
-	}
-}
-
-void	place_max_at_top(t_list **next_p, int index, int which,
-		t_oper **operation)
-{
-	int	i;
-
-	i = 0;
-	(void)which;
-	if (index < ft_lstsize(*next_p) / 2)
-	{
-		while (i < index)
-		{
-			ft_rotate(next_p, operation, 0);
-			i++;
-		}
-	}
-	else
-	{
-		while (i < (ft_lstsize(*next_p) - index))
-		{
-			ft_reverserotate(next_p, operation, 0);
-			i++;
-		}
-	}
-}
-
-void	place_min_at_top(t_list **next_p, int index, int which,
-		t_oper **operation)
-{
-	int i;
-
-	i = 0;
-	(void)which;
-	if (index < ft_lstsize(*next_p) / 2)
-	{
-		while (i < index)
-		{
-			ft_rotate(next_p, operation, 0);
-			i++;
-		}
-	}
-	else
-	{
-		while (i < (ft_lstsize(*next_p) - index))
-		{
-			ft_reverserotate(next_p, operation, 0);
-			i++;
-		}
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_medium_alg.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ffeder <ffeder@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 15:10:21 by ffeder            #+#    #+#             */
-/*   Updated: 2026/03/11 16:45:25 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/12 15:30:21 by ffeder           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ int	ft_bucket_no(int data, int size, int max)
 	float	bucket_no;
 	int		bucket;
 
-	normalize = ((float)data / (float)(max +1));
+	if (!max)
+		max = 1;
+	normalize = ((float)(data) / (float)(max));
 	bucket_no = (size * normalize);
 	bucket = (int)bucket_no / 10;
 	return (bucket);
@@ -50,23 +52,16 @@ void	order_b(t_list **stack_a, t_list **stack_b, t_oper **operations, int opt)
 void	order_alg(int temp_min_data, int index, t_list **stack_a, t_list **stack_b, t_oper **operation)
 {
 	t_list	*current;
-	int		sec;
 
-	sec = 0;
 	current = *stack_a;
-	if (temp_min_data >= 0)
-		sec = 1;
-	while (current->data != temp_min_data && temp_min_data != -1)
+	while (current->data != temp_min_data)
 	{
 		index++;
 		current = current->next;
 	}
-	if (sec == 1)
-	{
-		place_min_at_top(stack_a, index, 0, operation);
-		ft_push(stack_a, stack_b, operation, 0);
-		order_b(stack_a, stack_b, operation, 1);
-	}
+	place_min_at_top(stack_a, index, operation);
+	ft_push(stack_a, stack_b, operation, 0);
+	order_b(stack_a, stack_b, operation, 1);
 }
 
 void	top_nb_min_in_score(t_list **stack_a, t_list **stack_b, int max_score, t_oper **operation)
@@ -87,8 +82,7 @@ void	top_nb_min_in_score(t_list **stack_a, t_list **stack_b, int max_score, t_op
 			return ;
 		current = *stack_a;
 		index = 0;
-		temp_min_data = find_score(stack_a, index_score, size);
-		if (temp_min_data >= 0)
+		if (find_score(stack_a, index_score, size, &temp_min_data))
 			order_alg(temp_min_data, index, stack_a, stack_b, operation);
 		else
 			index_score += 1;
@@ -118,7 +112,7 @@ void	ft_medium_alg(t_list **stack_a, t_list **stack_b, t_oper **operation)
 	top_nb_min_in_score(stack_a, stack_b, max_score, operation);
 	while (size != 0)
 	{
-		find_max2(stack_b, 1, operation);
+		find_max2(stack_b, operation);
 		ft_push(stack_b, stack_a, operation, 1);
 		size--;
 	}
