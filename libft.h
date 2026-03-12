@@ -6,7 +6,7 @@
 /*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 12:30:58 by ffeder            #+#    #+#             */
-/*   Updated: 2026/03/12 11:45:01 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/12 11:53:54 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,5 +150,6 @@ int		ft_check_all(char **argv, p_list **param);
 void	set_alg(p_list **param, t_list **stack_a, t_list **stack_b, t_oper **op);
 
 void	print_bench(p_list **param, t_list **stack_a, t_oper **op, float disorder);
+void	ft_bench(t_oper **op, p_list **param, t_list **stack_a, t_list **stack_b);
 
 #endif
