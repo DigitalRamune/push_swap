@@ -29,3 +29,11 @@ void	ft_swap(t_list **stack_a, int which)
 	return ;
 }
 
+void	ft_ss(t_list **stack_a, t_list **stack_b, t_oper **operation)
+{
+	ft_swap(stack_a, 3);
+	ft_swap(stack_b, 3);
+	if ((*operation)->print == 0)
+			printf("ss\n");
+}
+

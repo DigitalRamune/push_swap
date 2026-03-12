@@ -29,7 +29,7 @@ void	ft_push(t_list **stack_a, t_list **stack_b, t_oper **operation, int	which)
 		if ((*operation)->print == 0)
 			printf("pa\n");
 	}
-	else
+	else if (which == 1)
 	{
 		(*operation)->pb += 1;
 		if ((*operation)->print == 0)
