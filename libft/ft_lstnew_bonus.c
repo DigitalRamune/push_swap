@@ -6,7 +6,7 @@
 /*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 13:42:15 by ffeder            #+#    #+#             */
-/*   Updated: 2026/03/12 16:53:59 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/12 17:05:27 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_oper	*ft_lstnew_op(int data)
 	elem->pa = data;
 	elem->pb = data;
 	elem->sa = data;
-	elem->sa = data;
+	elem->sb = data;
 	elem->ss = data;
 	elem->ra = data;
 	elem->rb = data;
