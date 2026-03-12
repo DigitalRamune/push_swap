@@ -6,13 +6,13 @@
 #    By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/22 16:26:23 by inaciri           #+#    #+#              #
-#    Updated: 2026/03/11 16:52:37 by inaciri          ###   ########.fr        #
+#    Updated: 2026/03/12 11:34:35 by inaciri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 
-CFLAGS = -Wall -Wextra
+CFLAGS = -Wall -Wextra -Werror
 
 SRCS = push_swap.c \
 	operations/ft_rotate.c \
