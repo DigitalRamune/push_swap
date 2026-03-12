@@ -6,7 +6,7 @@
 /*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 16:28:05 by inaciri           #+#    #+#             */
-/*   Updated: 2026/03/12 13:12:10 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/12 13:47:26 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,11 @@ int	main(int argc, char *argv[])
 		ft_split(argv[i], ' ', &stack_a);
 	i = argc - 1;
 	ft_create_stack(&stack_a, argv, i, z);
+	if (compute_disorder(&stack_a) == 0)
+	{
+		printf("La liste est dans l'ordre.\n");
+		return 0;
+	}
 	printf("STACK A BEFORE: \n\n");
 	printlist(stack_a);
 	set_alg(&param, &stack_a, &stack_b, &operations);
