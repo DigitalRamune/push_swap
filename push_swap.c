@@ -52,7 +52,7 @@ int	main(int argc, char *argv[])
 	ft_init_lists(&operations, &param);
 	z = ft_result_after_check(argv, &param);
 	if (z == 0)
-		return (0);
+		return (ft_lstclear_all(&stack_a, &stack_b, &param, &operations), 0);
 	i = argc;
 	if (argc <= 1)
 		printf("Error\n");
