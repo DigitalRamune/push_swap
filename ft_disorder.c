@@ -6,7 +6,7 @@
 /*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 13:41:26 by inaciri           #+#    #+#             */
-/*   Updated: 2026/03/12 11:47:38 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/12 13:19:32 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	ft_adaptive(p_list **param, t_list **stack_a)
 		(*param)->choice = ft_strdup("medium");
 		(*param)->medium = 1;
 	}
-	else if (size > 49)
+	else
 	{
 		(*param)->choice = ft_strdup("complex");
 		(*param)->complex = 1;
