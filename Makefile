@@ -6,7 +6,7 @@
 #    By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/22 16:26:23 by inaciri           #+#    #+#              #
-#    Updated: 2026/03/12 13:43:03 by inaciri          ###   ########.fr        #
+#    Updated: 2026/03/12 13:55:37 by inaciri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,6 @@ SRCS = push_swap.c \
 	operations/ft_rotate.c \
 	ft_find.c \
 	operations/ft_swap.c \
-	ft_isdigit.c \
 	ft_detect.c \
 	libft/ft_strdup.c \
 	ft_disorder.c \
