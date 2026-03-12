@@ -98,6 +98,29 @@ static char	**spliting(char **arr, char const *s, char c)
 	return (arr);
 }
 
+int	ft_check_duplicate(t_list **stack_a, int nb, char **arr, int index)
+{
+	t_list	*check;
+
+	check = *stack_a;
+	while (check)
+	{
+		if (check->data == nb)
+		{
+			printf("Error\n");
+			while (arr[index])
+			{
+				free(arr[index]);
+				arr[index] = NULL;
+				index++;
+			}
+			return (0);
+		}
+		check = check->next;
+	}
+	return (1);
+}
+
 t_list	**ft_split(char const *s, char c, t_list **stack_a)
 {
 	char	**arr;
@@ -114,6 +137,8 @@ t_list	**ft_split(char const *s, char c, t_list **stack_a)
 	while (arr[i])
 	{
 		nb = ft_atoi(arr[i]);
+		if (ft_check_duplicate(stack_a, nb, arr, i) == 0)
+			return (free(arr), arr = NULL, NULL);
 		ft_lstadd_front(stack_a, ft_lstnew(nb));
 		free(arr[i]);
 		i++;

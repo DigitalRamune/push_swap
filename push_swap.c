@@ -57,8 +57,10 @@ int	main(int argc, char *argv[])
 	if (argc <= 1)
 		printf("Error\n");
 	while (--i >= z)
-		ft_split(argv[i], ' ', &stack_a);
+	{
+		if (ft_split(argv[i], ' ', &stack_a) == NULL)
+			return (ft_lstclear_all(&stack_a, &stack_b, &param, &operations), 0);
+	}
 	i = argc - 1;
-	ft_create_stack(&stack_a, argv, i, z);
 	ft_push_swap(&stack_a, &stack_b, &operations, &param);
 }

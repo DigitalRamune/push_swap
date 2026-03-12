@@ -14,10 +14,26 @@
 
 void	ft_create_stack(t_list **stack_a, char **argv, int i, int z)
 {
-	if (!stack_a)
+	int	f;
+	t_list	*check;
+
+	check = *stack_a;
+	f = 0;
+	if (!stack_a || stack_a == NULL)
 	{
+		printf("Je rentre dans la boucle 0\n");
 		while (i >= z)
 		{
+			f = ft_atoi(argv[i]);
+			printf("je rentre dans la boucle 1\n");
+			while (check)
+			{
+				printf("je rentre dans la boucle 2\n");
+				if (check->data == f)
+					printf("Error\n");
+				check = check->next;
+			}
+			check = *stack_a;
 			ft_lstadd_front(stack_a, ft_lstnew(ft_atoi(argv[i])));
 			i--;
 		}
