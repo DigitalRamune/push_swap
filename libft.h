@@ -6,7 +6,7 @@
 /*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 12:30:58 by ffeder            #+#    #+#             */
-/*   Updated: 2026/03/12 13:10:03 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/12 13:40:37 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,7 @@ void	set_base_rank(t_list **stack_a);
 void	set_all_rank(t_list **stack);
 int		ft_bits_num(int list_size);
 void	ft_push_back_all(t_list **stack_b, t_list **stack_a, int count, t_oper **operations);
+void	ft_radix_loop(t_list **stack_a, t_list **stack_b, t_oper **operation, int maxbits, int bits);
 void	ft_radix(t_list **stack_a, t_list **stack_b, t_oper **operation);
 void	ft_set_op_nbr(t_oper **operations);
 

@@ -6,7 +6,7 @@
 /*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 13:53:54 by inaciri           #+#    #+#             */
-/*   Updated: 2026/03/11 16:42:14 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/12 13:44:08 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ void	set_all_rank(t_list **stack)
 
 	rank = 0;
 	list_size = ft_lstsize(*stack);
-	// printf("La taille de la liste est : %d\n\n", list_size);
 	first_l = *stack;
 	while (rank < list_size)
 	{
@@ -110,21 +109,15 @@ void	ft_push_back_all(t_list **stack_b, t_list **stack_a, int count, t_oper **op
 	}
 }
 
-void	ft_radix(t_list **stack_a, t_list **stack_b, t_oper **operation)
+void	ft_radix_loop(t_list **stack_a, t_list **stack_b, t_oper **operation, int maxbits, int bits)
 {
 	int	i;
-	int	bits;
 	int	size;
-	int	maxbits;
 	int	push_count;
-	int	total_coups;
 
 	i = 0;
-	bits = 0;
 	push_count = 0;
-	total_coups = 0;
 	size = ft_lstsize(*stack_a);
-	maxbits = ft_bits_num(size - 1);
 	while (bits < maxbits)
 	{
 		while (i < size)
@@ -137,11 +130,22 @@ void	ft_radix(t_list **stack_a, t_list **stack_b, t_oper **operation)
 			else
 				ft_rotate(stack_a, operation, 0);
 			i++;
-			total_coups += 1;
 		}
 		ft_push_back_all(stack_b, stack_a, push_count, operation);
 		push_count = 0;
 		i = 0;
 		bits++;
 	}
+}
+
+void	ft_radix(t_list **stack_a, t_list **stack_b, t_oper **operation)
+{
+	int	bits;
+	int	size;
+	int	maxbits;
+
+	bits = 0;
+	size = ft_lstsize(*stack_a);
+	maxbits = ft_bits_num(size - 1);
+	ft_radix_loop(stack_a, stack_b, operation, maxbits, bits);
 }
