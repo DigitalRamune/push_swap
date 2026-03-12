@@ -6,7 +6,7 @@
 #    By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/22 16:26:23 by inaciri           #+#    #+#              #
-#    Updated: 2026/03/12 11:34:35 by inaciri          ###   ########.fr        #
+#    Updated: 2026/03/12 12:33:18 by inaciri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,8 @@ SRCS = push_swap.c \
 	simple/ft_simple_alg.c \
 	medium/ft_medium_alg.c \
 	complex/ft_radix.c \
-	ft_choice.c
+	ft_choice.c \
+	ft_create_stack.c
 
 OBJS := ${SRCS:.c=.o}
 
