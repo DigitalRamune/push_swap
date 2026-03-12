@@ -6,7 +6,7 @@
 /*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 12:25:48 by inaciri           #+#    #+#             */
-/*   Updated: 2026/03/12 12:35:20 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/12 12:57:19 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,10 @@ void	ft_create_stack(t_list **stack_a, char **argv, int i, int z)
 			i--;
 		}
 	}
+}
+
+void	ft_init_lists(t_oper **operations, p_list **param)
+{
+	ft_lstadd_front_op(operations, ft_lstnew_op(0));
+	ft_lstadd_front_param(param,ft_lstnew_param(0));
 }

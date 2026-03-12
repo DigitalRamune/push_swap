@@ -6,7 +6,7 @@
 /*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 16:28:05 by inaciri           #+#    #+#             */
-/*   Updated: 2026/03/12 12:34:50 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/12 12:58:51 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ int	main(int argc, char *argv[])
 
 	stack_a = NULL;
 	stack_b = NULL;
-	ft_lstadd_front_op(&operations, ft_lstnew_op(0));
-	ft_lstadd_front_param(&param,ft_lstnew_param(0));
+	ft_init_lists(&operations, &param);
 	result = ft_check_all(argv, &param);
 	z = 1;
 	if (result == -1)
