@@ -50,12 +50,12 @@ int	ft_adaptive(t_para **param, t_list **stack_a)
 	size = ft_lstsize(*stack_a);
 	disorder = compute_disorder(stack_a);
 	(*param)->adaptiv = 0;
-	if (size <= 10)
+	if (size <= 10 || disorder < 20)
 	{
 		(*param)->choice = ft_strdup("Simple / O(n^2)");
 		(*param)->simple = 1;
 	}
-	else if (size <= 100)
+	else if (disorder <= 50 && disorder >= 20 && size <= 200)
 	{
 		(*param)->choice = ft_strdup("Medium / O(n√n)");
 		(*param)->medium = 1;
