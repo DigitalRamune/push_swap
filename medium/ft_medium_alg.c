@@ -110,10 +110,17 @@ void	ft_medium_alg(t_list **stack_a, t_list **stack_b, t_oper **operation)
 		current = current->next;
 	}
 	top_nb_min_in_score(stack_a, stack_b, max_score, operation);
-	while (size != 0)
+	// while (size != 0)
+	// {
+	// 	find_max2(stack_b, operation);
+	// 	ft_push(stack_b, stack_a, operation, 0);
+	// 	size--;
+	// }
+	while (ft_lstsize(*stack_a) > 0)
+		ft_push(stack_a, stack_b, operation, 1);
+	while (ft_lstsize(*stack_b) > 0)
 	{
 		find_max2(stack_b, operation);
 		ft_push(stack_b, stack_a, operation, 0);
-		size--;
 	}
 }
