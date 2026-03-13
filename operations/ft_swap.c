@@ -42,5 +42,5 @@ void	ft_ss(t_list **stack_a, t_list **stack_b, t_oper **operation)
 	ft_swap(stack_a, operation, 3);
 	ft_swap(stack_b, operation, 3);
 	if ((*operation)->print == 0)
-		printf("ss\n");
+		write(1, "ss\n", 3);
 }

@@ -19,7 +19,7 @@ void	printlist(t_list *next_p)
 	current_p = next_p;
 	while (current_p != NULL)
 	{
-		printf("%d\n", current_p->data);
+		ft_printf("%d\n", current_p->data);
 		current_p = current_p->next;
 	}
 	return ;

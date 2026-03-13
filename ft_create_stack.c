@@ -21,14 +21,11 @@ void	ft_create_stack(t_list **stack_a, char **argv, int i, int z)
 	f = 0;
 	if (!stack_a || stack_a == NULL)
 	{
-		printf("Je rentre dans la boucle 0\n");
 		while (i >= z)
 		{
 			f = ft_atoi(argv[i]);
-			printf("je rentre dans la boucle 1\n");
 			while (check)
 			{
-				printf("je rentre dans la boucle 2\n");
 				if (check->data == f)
 					write(2, "Error\n", 6);
 				check = check->next;
