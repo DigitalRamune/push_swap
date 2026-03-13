@@ -6,11 +6,36 @@
 /*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 13:47:46 by ffeder            #+#    #+#             */
-/*   Updated: 2026/03/12 14:04:31 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/13 13:49:07 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+int	ft_is_digit(char c)
+{
+	return (c >= '0' && c <= '9');	
+}
+
+int	ft_is_valid_number(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (!str || !str[i])
+		return (0);
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	if (!str[i])
+		return (0);
+	while (str[i])
+	{
+		if (!ft_is_digit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 int	ft_detect(char *argv, p_list **param)
 {
@@ -48,7 +73,7 @@ int	ft_check_all(char **argv, p_list **param)
 	z = (ft_detect(argv[1], param) == 0);
 	if (z)
 	{
-		if (ft_atoi(argv[i]) == 0 && argv[i][0] != '0')
+		if (ft_is_valid_number(argv[1]) == 0)
 			return (-1);
 		(*param)->adaptiv = 1;
 	}
@@ -56,9 +81,9 @@ int	ft_check_all(char **argv, p_list **param)
 	{
 		if (i > 1 && ft_detect(argv[i], param) == 1)
 			return (-1);
-		if (ft_atoi(argv[i]) > INT_MAX || ft_atoi(argv[i]) < INT_MIN)
-			return (-1);
-		if (i > 1 && ft_atoi(argv[i]) == 0 && argv[i][0] != '0')
+		// if (ft_atoi(argv[i]) > INT_MAX || ft_atoi(argv[i]) < INT_MIN)
+		// 	return (-1);
+		if (i > 1 && ft_is_valid_number(argv[i]) == 0)
 			return (-1);
 		i++;
 	}

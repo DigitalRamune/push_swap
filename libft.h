@@ -6,7 +6,7 @@
 /*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 12:30:58 by ffeder            #+#    #+#             */
-/*   Updated: 2026/03/12 17:19:18 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/13 13:48:44 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,6 +156,8 @@ void	ft_radix_loop(t_list **stack_a, t_list **stack_b, t_oper **operation, int m
 void	ft_radix(t_list **stack_a, t_list **stack_b, t_oper **operation);
 void	ft_set_op_nbr(t_oper **operations);
 
+int		ft_is_digit(char c);
+int		ft_is_valid_number(char *str);
 int		ft_detect(char *argv, p_list **param);
 int		ft_check_all(char **argv, p_list **param);
 void	set_alg(p_list **param, t_list **stack_a, t_list **stack_b, t_oper **op);
