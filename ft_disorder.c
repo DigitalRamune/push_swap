@@ -58,7 +58,7 @@ int	ft_adaptive(p_list **param, t_list **stack_a)
 	size = ft_lstsize(*stack_a);
 	disorder = compute_disorder(stack_a);
 	(*param)->adaptiv = 0;
-	if ((disorder < 20 && size <= 50) || (disorder == 100.00 && size == 2))
+	if ((disorder < 20 && size <= 50) || (size <= 10))
 	{
 		(*param)->choice = ft_strdup("Simple / O(n^2)");
 		(*param)->simple = 1;

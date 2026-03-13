@@ -12,17 +12,72 @@
 
 #include "../libft.h"
 
+int	find_index_of_max(t_list **stack_a)
+{
+	int		max;
+	int		index;
+	t_list	*current;
+
+	current = *stack_a;
+	max = current->data;
+	index = 1;
+	while (current->next != NULL)
+	{
+		if (current->data > max)
+			max = current->data;
+		current = current->next;
+	}
+	if (current->data > max)
+		max = current->data;
+	current = *stack_a;
+	while (current->data != max)
+	{
+		index++;
+		current = current->next;
+	}
+	return (index);
+}
+
+void	ft_sort_three(t_list **st_a, t_oper **op)
+{
+	int		max_pos;
+
+	if (!st_a || !*st_a || !(*st_a)->next)
+        return ;
+	max_pos = find_index_of_max(st_a);
+	if (max_pos == 2)
+		ft_reverserotate(st_a, op, 0);
+	else if (max_pos == 1)
+		ft_rotate(st_a, op, 0);
+	if ((*st_a)->data > (*st_a)->next->data)
+		ft_swap(st_a, op, 0);
+	return ;
+}
+
+void	ft_simple_mini(t_list **st_a, t_list **st_b, t_oper **op)
+{
+	int	size;
+
+	size = ft_lstsize(*st_a);
+	if (size == 2)
+		ft_swap(st_a, op, 0);
+	else if (size == 3)
+	{
+		ft_sort_three(st_a, op);
+	}
+	// else if (size <= 10)
+	// 	ft_sort_small(st_a, st_b, op);
+}
+
 void	ft_simple_alg(t_list **stack_a, t_list **stack_b, t_oper **operation)
 {
 	int		index;
 	int		size;
-	float	disorder;
 
 	size = ft_lstsize(*stack_a);
-	disorder = compute_disorder(stack_a);
-	if (disorder == 100.00 && size == 2)
+	if (size <= 3)
 	{
-		ft_swap(stack_a, operation, 0);
+		ft_simple_mini(stack_a, stack_b, operation);
 		return;
 	}
 	index = 0;
