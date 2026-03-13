@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_simple_alg.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffeder <ffeder@student.42.fr>              +#+  +:+       +#+        */
+/*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 17:15:11 by ffeder            #+#    #+#             */
-/*   Updated: 2026/03/12 15:29:32 by ffeder           ###   ########.fr       */
+/*   Updated: 2026/03/13 17:14:55 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	ft_sort_three(t_list **st_a, t_oper **op)
 	if (!st_a || !*st_a || !(*st_a)->next)
 		return ;
 	max_pos = find_index_of_max(st_a);
-	if (max_pos == 2)
+	if (max_pos == 1)
 		ft_reverserotate(st_a, op, 0);
-	else if (max_pos == 1)
+	else if (max_pos == 0)
 		ft_rotate(st_a, op, 0);
 	if ((*st_a)->data > (*st_a)->next->data)
 		ft_swap(st_a, op, 0);

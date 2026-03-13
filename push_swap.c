@@ -6,7 +6,7 @@
 /*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 16:28:05 by inaciri           #+#    #+#             */
-/*   Updated: 2026/03/13 16:34:53 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/13 17:41:58 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ void	ft_push_swap(t_list **stack_a, t_list **stack_b, t_oper **op, p_list **para
 	// printf("AVANT set_alg - Stack A:\n");
     // printlist(*stack_a);
 	set_alg(param, stack_a, stack_b, op);
-	// printf("APRES set_alg - Stack A:\n");
-    // printlist(*stack_a);
+	printf("APRES set_alg - Stack A:\n");
+    printlist(*stack_a);
 	ft_lstclear_all(stack_a, stack_b, param, op);
 }
 

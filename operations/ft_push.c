@@ -6,7 +6,7 @@
 /*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 13:28:10 by ffeder            #+#    #+#             */
-/*   Updated: 2026/03/11 16:46:31 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/13 17:36:04 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ void	ft_push(t_list **st_a, t_list **st_b, t_oper **operation, int which)
 	{
 		(*operation)->pa += 1;
 		if ((*operation)->print == 0)
-			printf("pa\n");
+			write(1, "pa\n", 3);
 	}
 	else if (which == 1)
 	{
 		(*operation)->pb += 1;
 		if ((*operation)->print == 0)
-			printf("pb\n");
+			write(1, "pb\n", 3);
 	}
 }

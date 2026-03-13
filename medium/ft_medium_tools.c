@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_medium_tools.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffeder <ffeder@student.42.fr>              +#+  +:+       +#+        */
+/*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 15:16:55 by ffeder            #+#    #+#             */
-/*   Updated: 2026/03/12 15:30:29 by ffeder           ###   ########.fr       */
+/*   Updated: 2026/03/13 16:58:58 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	place_max_at_top(t_list **next_p, int index, t_oper **operation)
 	int	i;
 
 	i = 0;
-	if (index < ft_lstsize(*next_p) / 2)
+	if (index <= ft_lstsize(*next_p) / 2)
 	{
 		while (i < index)
 		{
@@ -105,7 +105,7 @@ void	place_min_at_top(t_list **next_p, int index, t_oper **operation)
 	int	i;
 
 	i = 0;
-	if (index < ft_lstsize(*next_p) / 2)
+	if (index <= ft_lstsize(*next_p) / 2)
 	{
 		while (i < index)
 		{

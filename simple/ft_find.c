@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_find.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffeder <ffeder@student.42.fr>              +#+  +:+       +#+        */
+/*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 15:23:14 by ffeder            #+#    #+#             */
-/*   Updated: 2026/03/12 15:28:51 by ffeder           ###   ########.fr       */
+/*   Updated: 2026/03/13 17:13:47 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	find_index_of_max(t_list **stack_a)
 
 	current = *stack_a;
 	max = current->data;
-	index = 1;
+	index = 0;
 	while (current->next != NULL)
 	{
 		if (current->data > max)
