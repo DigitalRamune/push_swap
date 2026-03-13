@@ -28,6 +28,7 @@ size_t	ft_putchar(char c);
 size_t	ft_strlen(char *str);
 size_t	ft_printadress(void *p);
 size_t	ft_hexcount(unsigned long long hex);
+int     ft_print_float(double n);
 int		ft_printf(const char *string, ...);
 
 #endif

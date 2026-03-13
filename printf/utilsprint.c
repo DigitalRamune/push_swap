@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../libft.h"
 
 size_t	ft_putchar(char c)
 {
@@ -44,12 +44,6 @@ size_t	ft_putnbrunsigned(unsigned int n)
 	int	i;
 
 	i = 0;
-	if (n < 0)
-	{
-		n = n * -1;
-		write(1, "-", 1);
-		i++;
-	}
 	if (n > 9)
 		i = i + ft_putnbr((n / 10));
 	i = i + ft_putchar(((n % 10) + '0'));

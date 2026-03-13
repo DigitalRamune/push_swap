@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../libft.h"
 
 static int	ft_option(char c, va_list arg)
 {
@@ -31,6 +31,8 @@ static int	ft_option(char c, va_list arg)
 		i += ft_printhexa(va_arg(arg, unsigned int), 1);
 	if (c == 'X')
 		i += ft_printhexa(va_arg(arg, unsigned int), 2);
+	if (c == 'f')
+		i += ft_printfloat(va_arg(arg, double));
 	if (c == '%')
 		return (ft_putchar('%'));
 	return (i);
@@ -38,10 +40,10 @@ static int	ft_option(char c, va_list arg)
 
 int	ft_printf(const char *string, ...)
 {
-	int		i;
-	int		count;
+	int	i;
+	int	count;
 
-	va_list (arg);
+	va_list(arg);
 	count = 0;
 	i = 0;
 	if (!string || write(1, "", 0) == -1)
@@ -64,36 +66,3 @@ int	ft_printf(const char *string, ...)
 	return (count);
 }
 
-// int	main(void)
-// {
-// 	// // TEST %U %D %I / NUMBER
-// 	// int	x;
-// 	// int	y;
-
-// 	// x = printf("hello %d %i %u\n", 200, 600, 700);
-// 	// y = ft_printf("hello %d %i %u\n", 200, 600, 700);
-// 	// printf("\n%d\n", x);
-// 	// printf("%d\n", y);
-
-// 	// // TEST %C %S %% / STRING AND CHAR
-// 	// int	x;
-// 	// int	y;
-// 	// char *str = NULL;
-
-// 	// x = printf("hello %% %c %s\n", 'c', str);
-// 	// y = ft_printf("hello %% %c %s\n", 'c', str);
-// 	// printf("\n printfcount %d\n", x);
-// 	// printf("ft_printfcount %d\n", y);
-
-// 	// TEST %x %X %p / HEXADECIMAL
-// 	int		x;
-// 	int		y;
-// 	void	*ptr;
-// 	int		j;
-
-// 	ptr = &j;
-// 	x = printf("hello %p %x %X\n", ptr, 100, 200);
-// 	y = ft_printf("hello %p %x %X\n", ptr, 100, 200);
-// 	printf("\n printfcount %d\n", x);
-// 	printf("ft_printfcount %d\n", y);
-// }

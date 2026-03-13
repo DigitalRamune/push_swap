@@ -13,7 +13,10 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <bsd/string.h>
 # include <limits.h>
+# include <stdarg.h>
+# include <stddef.h>
 # include <stdint.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -205,5 +208,15 @@ int						ft_result_after_check(char **argv, t_para **param);
 void					ft_push_swap(t_list **st_a, t_list **st_b, t_oper **op,
 							t_para **param);
 int						ft_check_duplicate(t_list **stack_a, int nb);
+
+size_t					ft_printhexa(unsigned long long p, int secure);
+size_t					ft_putstr(char *s);
+size_t					ft_putnbrunsigned(unsigned int n);
+size_t					ft_putnbr(int n);
+size_t					ft_putchar(char c);
+size_t					ft_printadress(void *p);
+size_t					ft_hexcount(unsigned long long hex);
+int						ft_printfloat(double n);
+int						ft_printf(const char *string, ...);
 
 #endif
