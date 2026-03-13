@@ -17,7 +17,7 @@ void	ft_sort_three(t_list **st_a, t_oper **op)
 	int		max_pos;
 
 	if (!st_a || !*st_a || !(*st_a)->next)
-        return ;
+		return ;
 	max_pos = find_index_of_max(st_a);
 	if (max_pos == 2)
 		ft_reverserotate(st_a, op, 0);
@@ -72,7 +72,7 @@ void	ft_simple_alg(t_list **stack_a, t_list **stack_b, t_oper **operation)
 	if (size <= 10)
 	{
 		ft_simple_mini(stack_a, stack_b, operation);
-		return;
+		return ;
 	}
 	index = 0;
 	while (index < size - 1)

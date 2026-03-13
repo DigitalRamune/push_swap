@@ -12,7 +12,7 @@
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra 
 
 SRCS = push_swap.c \
 	operations/ft_rotate.c \

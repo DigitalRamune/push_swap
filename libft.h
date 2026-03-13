@@ -160,7 +160,7 @@ int		ft_detect(char *argv, p_list **param);
 int		ft_check_all(char **argv, p_list **param);
 void	set_alg(p_list **param, t_list **stack_a, t_list **stack_b, t_oper **op);
 
-void	print_bench(p_list **param, t_list **stack_a, t_oper **op, float disorder);
+void	print_bench(p_list **param, t_oper **op, float disorder);
 void	ft_bench(t_oper **op, p_list **param, t_list **stack_a, t_list **stack_b);
 
 void	ft_create_stack(t_list **stack_a, char **argv, int i, int z);

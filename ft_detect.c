@@ -43,7 +43,7 @@ int	ft_check_all(char **argv, p_list **param)
 {
 	int	i;
 	int	z;
-	
+
 	i = 1;
 	z = 0;
 	if (ft_detect(argv[i], param) == 0)
@@ -56,8 +56,10 @@ int	ft_check_all(char **argv, p_list **param)
 	i++;
 	while (argv[i])
 	{
-		if (ft_detect(argv[i], param) == 1 || (argv[i][0] == '-' && (ft_atoi(argv[i]) == 0)))
-			return -1;
+		if (ft_detect(argv[i], param) == 1)
+			return (-1);
+		else if (argv[i][0] == '-' && (ft_atoi(argv[i]) == 0))
+			return (-1);
 		i++;
 	}
 	return (1 + z);

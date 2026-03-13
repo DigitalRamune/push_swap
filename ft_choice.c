@@ -12,11 +12,10 @@
 
 #include "libft.h"
 
-void	print_bench(p_list **param, t_list **stack_a, t_oper **op, float disorder)
+void	print_bench(p_list **param, t_oper **op, float disorder)
 {
 	int		total_ops;
 
-	(void) stack_a;
 	total_ops = (*op)->pa + (*op)->pb + (*op)->ra + (*op)-> rb;
 	total_ops += (*op)->rr + (*op)->rra + (*op)->rrb + (*op)->rrr;
 	total_ops += (*op)->sa + (*op)->sb + (*op)->ss;
@@ -29,16 +28,16 @@ void	print_bench(p_list **param, t_list **stack_a, t_oper **op, float disorder)
 	printf("rra : %d rrb : %d rrr : %d \n", (*op)->rra, (*op)->rrb, (*op)->rrr);
 }
 
-void	ft_bench(t_oper **op, p_list **param, t_list **stack_a, t_list **stack_b)
+void	ft_bench(t_oper **op, p_list **param, t_list **st_a, t_list **st_b)
 {
 	float	disorder;
 
 	(*op)->print = 1;
 	(*param)->bench = 0;
-	ft_adaptive(param, stack_a);
-	disorder = compute_disorder(stack_a);
-	set_alg(param, stack_a, stack_b, op);
-	print_bench(param, stack_a, op, disorder);
+	ft_adaptive(param, st_a);
+	disorder = compute_disorder(st_a);
+	set_alg(param, st_a, st_b, op);
+	print_bench(param, op, disorder);
 }
 
 void	set_alg(p_list **param, t_list **stack_a, t_list **stack_b, t_oper **op)
