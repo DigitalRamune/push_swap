@@ -58,7 +58,7 @@ int	ft_adaptive(p_list **param, t_list **stack_a)
 	size = ft_lstsize(*stack_a);
 	disorder = compute_disorder(stack_a);
 	(*param)->adaptiv = 0;
-	if (disorder < 20 && size <= 50)
+	if ((disorder < 20 && size <= 50) || (disorder == 100.00 && size == 2))
 	{
 		(*param)->choice = ft_strdup("simple");
 		(*param)->simple = 1;

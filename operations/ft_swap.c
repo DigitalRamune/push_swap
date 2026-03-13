@@ -12,7 +12,7 @@
 
 #include "../libft.h"
 
-void	ft_swap(t_list **stack_a, int which)
+void	ft_swap(t_list **stack_a, t_oper **operation, int which)
 {
 	t_list	*second;
 
@@ -23,16 +23,24 @@ void	ft_swap(t_list **stack_a, int which)
 	second->next = (*stack_a);
 	*stack_a = second;
 	if (which == 1)
-		write(1, "sb\n", 3);
+	{
+		(*operation)->sb += 1;
+		if ((*operation)->print == 0)
+			write(1, "sb\n", 3);
+	}
 	else if (which == 0)
-		write(1, "sa\n", 3);
+	{
+		(*operation)->sa += 1;
+		if ((*operation)->print == 0)
+			write(1, "sa\n", 3);
+	}
 	return ;
 }
 
 void	ft_ss(t_list **stack_a, t_list **stack_b, t_oper **operation)
 {
-	ft_swap(stack_a, 3);
-	ft_swap(stack_b, 3);
+	ft_swap(stack_a, operation, 3);
+	ft_swap(stack_b, operation, 3);
 	if ((*operation)->print == 0)
 			printf("ss\n");
 }

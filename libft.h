@@ -118,7 +118,7 @@ void	ft_rrr(t_list **stack_a, t_list **stack_b, t_oper **operation);
 void	ft_rotate(t_list **stack_a, t_oper **operation, int which);
 void	ft_rr(t_list **stack_a, t_list **stack_b, t_oper **operation);
 void	ft_push(t_list **stack_a, t_list **stack_b, t_oper **operation, int which);
-void	ft_swap(t_list **stack_a, int which);
+void	ft_swap(t_list **stack_a, t_oper **operation, int which);
 void	ft_ss(t_list **stack_a, t_list **stack_b, t_oper **operation);
 
 void	printlist(t_list *next_p);

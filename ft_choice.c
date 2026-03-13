@@ -19,6 +19,7 @@ void	print_bench(p_list **param, t_list **stack_a, t_oper **op, float disorder)
 
 	total_ops = (*op)->pa + (*op)->pb + (*op)->ra + (*op)-> rb;
 	total_ops += (*op)->rr + (*op)->rra + (*op)->rrb + (*op)->rrr;
+	total_ops += (*op)->sa + (*op)->sb + (*op)->ss;
 	printf("[bench] disorder : %.1f%%\n[bench] strategy : %s \n[bench] total_ops : %d\n", disorder, (*param)->choice, total_ops);
 	printf("[bench] sa : %d sb : %d ss : %d pa : %d pb : %d \n", (*op)->sa, (*op)->sb, (*op)->ss, (*op)->pa, (*op)->pb);
 	printf("[bench] ra : %d rb : %d rr : %d rra : %d rrb : %d rrr : %d \n", (*op)->ra, (*op)->rb, (*op)->rr, (*op)->rra, (*op)->rrb, (*op)->rrr);

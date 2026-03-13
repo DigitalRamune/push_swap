@@ -14,10 +14,17 @@
 
 void	ft_simple_alg(t_list **stack_a, t_list **stack_b, t_oper **operation)
 {
-	int	index;
-	int	size;
+	int		index;
+	int		size;
+	float	disorder;
 
 	size = ft_lstsize(*stack_a);
+	disorder = compute_disorder(stack_a);
+	if (disorder == 100.00 && size == 2)
+	{
+		ft_swap(stack_a, operation, 0);
+		return;
+	}
 	index = 0;
 	while (index < size - 1)
 	{

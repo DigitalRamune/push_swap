@@ -29,11 +29,18 @@ void	ft_push_swap(t_list **stack_a, t_list **stack_b, t_oper **op, p_list **para
 {
 	if (ft_lstsize(*stack_a) <= 1 || compute_disorder(stack_a) < 0.01)
 	{
+		if (compute_disorder(stack_a) < 0.01)
+			write(1, "La stack est bonne\n", 19);
+		else
+			write(2, "Error\n", 6);
 		ft_lstclear_all(stack_a, stack_b, param, op);
-		write(2, "Error\n", 6);
 		return ;
 	}
+	printf("AVANT set_alg - Stack A:\n");
+    printlist(*stack_a);
 	set_alg(param, stack_a, stack_b, op);
+	printf("APRES set_alg - Stack A:\n");
+    printlist(*stack_a);
 	ft_lstclear_all(stack_a, stack_b, param, op);
 }
 
