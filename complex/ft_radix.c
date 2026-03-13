@@ -109,43 +109,38 @@ void	ft_push_back_all(t_list **stack_b, t_list **stack_a, int count, t_oper **op
 	}
 }
 
-void	ft_radix_loop(t_list **stack_a, t_list **stack_b, t_oper **operation, int maxbits, int bits)
+void	ft_radix_loop(t_list **stack_a, t_list **stack_b, t_oper **operation, int maxbits)
 {
 	int	i;
 	int	size;
-	int	push_count;
+	int	bits;
 
-	i = 0;
-	push_count = 0;
+	bits = 0;
 	size = ft_lstsize(*stack_a);
 	while (bits < maxbits)
 	{
+		i = 0;
 		while (i < size)
 		{
 			if ((((*stack_a)->rank >> bits) & 1) == 0)
 			{
 				ft_push(stack_a, stack_b, operation, 1);
-				push_count += 1;
 			}
 			else
 				ft_rotate(stack_a, operation, 0);
 			i++;
 		}
-		ft_push_back_all(stack_b, stack_a, push_count, operation);
-		push_count = 0;
-		i = 0;
+		ft_push_back_all(stack_b, stack_a, ft_lstsize(*stack_b), operation);
 		bits++;
 	}
 }
 
 void	ft_radix(t_list **stack_a, t_list **stack_b, t_oper **operation)
 {
-	int	bits;
 	int	size;
 	int	maxbits;
 
-	bits = 0;
 	size = ft_lstsize(*stack_a);
 	maxbits = ft_bits_num(size);
-	ft_radix_loop(stack_a, stack_b, operation, maxbits, bits);
+	ft_radix_loop(stack_a, stack_b, operation, maxbits);
 }
