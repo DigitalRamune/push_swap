@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_medium_alg.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffeder <ffeder@student.42.fr>              +#+  +:+       +#+        */
+/*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 15:10:21 by ffeder            #+#    #+#             */
-/*   Updated: 2026/03/12 15:30:21 by ffeder           ###   ########.fr       */
+/*   Updated: 2026/03/13 14:02:48 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	order_alg(int temp_min_data, int index, t_list **stack_a, t_list **stack_b,
 		current = current->next;
 	}
 	place_min_at_top(stack_a, index, operation);
-	ft_push(stack_a, stack_b, operation, 0);
+	ft_push(stack_a, stack_b, operation, 1);
 	order_b(stack_a, stack_b, operation, 1);
 }
 
@@ -113,7 +113,7 @@ void	ft_medium_alg(t_list **stack_a, t_list **stack_b, t_oper **operation)
 	while (size != 0)
 	{
 		find_max2(stack_b, operation);
-		ft_push(stack_b, stack_a, operation, 1);
+		ft_push(stack_b, stack_a, operation, 0);
 		size--;
 	}
 }

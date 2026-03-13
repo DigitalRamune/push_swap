@@ -6,7 +6,7 @@
 /*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 13:53:54 by inaciri           #+#    #+#             */
-/*   Updated: 2026/03/12 13:44:08 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/13 14:01:55 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	ft_push_back_all(t_list **stack_b, t_list **stack_a, int count, t_oper **op
 	i = 0;
 	while (i < count)
 	{
-		ft_push(stack_b, stack_a, operations, 1);
+		ft_push(stack_b, stack_a, operations, 0);
 		i++;
 	}
 }
@@ -124,7 +124,7 @@ void	ft_radix_loop(t_list **stack_a, t_list **stack_b, t_oper **operation, int m
 		{
 			if ((((*stack_a)->rank >> bits) & 1) == 0)
 			{
-				ft_push(stack_a, stack_b, operation, 0);
+				ft_push(stack_a, stack_b, operation, 1);
 				push_count += 1;
 			}
 			else

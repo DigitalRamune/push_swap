@@ -6,7 +6,7 @@
 /*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 13:47:46 by ffeder            #+#    #+#             */
-/*   Updated: 2026/03/13 13:49:07 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/13 13:52:33 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_is_digit(char c)
 {
-	return (c >= '0' && c <= '9');	
+	return (c >= '0' && c <= '9');
 }
 
 int	ft_is_valid_number(char *str)
