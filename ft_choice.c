@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	print_bench(p_list **param, t_oper **op, float disorder)
+void	print_bench(t_para **param, t_oper **op, float disorder)
 {
 	int		total_ops;
 
@@ -28,7 +28,7 @@ void	print_bench(p_list **param, t_oper **op, float disorder)
 	printf("rra : %d rrb : %d rrr : %d \n", (*op)->rra, (*op)->rrb, (*op)->rrr);
 }
 
-void	ft_bench(t_oper **op, p_list **param, t_list **st_a, t_list **st_b)
+void	ft_bench(t_oper **op, t_para **param, t_list **st_a, t_list **st_b)
 {
 	float	disorder;
 
@@ -40,7 +40,7 @@ void	ft_bench(t_oper **op, p_list **param, t_list **st_a, t_list **st_b)
 	print_bench(param, op, disorder);
 }
 
-void	set_alg(p_list **param, t_list **stack_a, t_list **stack_b, t_oper **op)
+void	set_alg(t_para **param, t_list **stack_a, t_list **stack_b, t_oper **op)
 {
 	if ((*param)->complex == 1)
 	{

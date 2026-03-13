@@ -41,7 +41,7 @@ int	ft_is_sorted(t_list *st_a)
 	return (1);
 }
 
-void	ft_push_swap(t_list **st_a, t_list **st_b, t_oper **op, p_list **param)
+void	ft_push_swap(t_list **st_a, t_list **st_b, t_oper **op, t_para **param)
 {
 	if (ft_lstsize(*st_a) <= 1 || ft_is_sorted(*st_a))
 	{
@@ -58,7 +58,7 @@ int	main(int argc, char *argv[])
 	t_list	*st_a;
 	t_list	*st_b;
 	t_oper	*op;
-	p_list	*param;
+	t_para	*param;
 
 	st_a = NULL;
 	st_b = NULL;

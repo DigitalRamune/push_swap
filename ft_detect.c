@@ -37,7 +37,7 @@ int	ft_is_valid_number(char *str)
 	return (1);
 }
 
-int	ft_detect(char *argv, p_list **param)
+int	ft_detect(char *argv, t_para **param)
 {
 	if (ft_strncmp(argv, "--simple", ft_strlen(argv)) == 0)
 	{
@@ -64,7 +64,7 @@ int	ft_detect(char *argv, p_list **param)
 	return (1);
 }
 
-int	ft_check_all(char **argv, p_list **param)
+int	ft_check_all(char **argv, t_para **param)
 {
 	int	i;
 	int	z;
@@ -88,7 +88,7 @@ int	ft_check_all(char **argv, p_list **param)
 	return (1 + z);
 }
 
-int	ft_result_after_check(char **argv, p_list **param)
+int	ft_result_after_check(char **argv, t_para **param)
 {
 	int	result;
 

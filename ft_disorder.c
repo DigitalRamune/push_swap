@@ -41,7 +41,7 @@ float	compute_disorder(t_list **stack_a)
 	return (((float)mistakes / (float)total_pairs) * 100);
 }
 
-int	ft_adaptive(p_list **param, t_list **stack_a)
+int	ft_adaptive(t_para **param, t_list **stack_a)
 {
 	float	disorder;
 	int		size;

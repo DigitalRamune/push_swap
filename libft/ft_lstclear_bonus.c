@@ -49,9 +49,9 @@ void	ft_lstclear_op(t_oper **lst)
 	return ;
 }
 
-void	ft_lstclear_param(p_list **lst)
+void	ft_lstclear_param(t_para **lst)
 {
-	p_list	*temp;
+	t_para	*temp;
 
 	if (lst != NULL)
 	{
@@ -67,7 +67,7 @@ void	ft_lstclear_param(p_list **lst)
 	return ;
 }
 
-void	lstclear_all(t_list **st_a, t_list **st_b, p_list **param, t_oper **op)
+void	lstclear_all(t_list **st_a, t_list **st_b, t_para **param, t_oper **op)
 {
 	if ((*param)->choice)
 		free((*param)->choice);

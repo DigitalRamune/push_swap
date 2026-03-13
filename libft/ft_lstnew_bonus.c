@@ -48,11 +48,11 @@ t_oper	*ft_lstnew_op(int data)
 	return (elem);
 }
 
-p_list	*ft_lstnew_param(int data)
+t_para	*ft_lstnew_param(int data)
 {
-	p_list	*elem;
+	t_para	*elem;
 
-	elem = malloc(sizeof(p_list));
+	elem = malloc(sizeof(t_para));
 	if (!elem)
 		return (NULL);
 	elem->adaptiv = data;

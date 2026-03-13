@@ -32,7 +32,7 @@ void	ft_lstadd_front_op(t_oper **lst, t_oper *new)
 	}
 }
 
-void	ft_lstadd_front_param(p_list **lst, p_list *new)
+void	ft_lstadd_front_param(t_para **lst, t_para *new)
 {
 	if (lst && new)
 	{
