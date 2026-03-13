@@ -27,7 +27,7 @@ void	printlist(t_list *next_p)
 
 void	ft_push_swap(t_list **stack_a, t_list **stack_b, t_oper **op, p_list **param)
 {
-	if (ft_lstsize(*stack_a) <= 1 ||compute_disorder(stack_a) == 0)
+	if (ft_lstsize(*stack_a) <= 1 || compute_disorder(stack_a) < 0.01)
 	{
 		ft_lstclear_all(stack_a, stack_b, param, op);
 		write(2, "Error\n", 6);
@@ -55,8 +55,6 @@ int	main(int argc, char *argv[])
 	if (z == 0)
 		return (ft_lstclear_all(&stack_a, &stack_b, &param, &operations), 0);
 	i = argc;
-	if (argc <= 1)
-		write(2, "Error\n", 6);
 	while (--i >= z)
 	{
 		if (ft_split(argv[i], ' ', &stack_a) == NULL)

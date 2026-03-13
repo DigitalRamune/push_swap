@@ -31,6 +31,8 @@ float	compute_disorder(t_list **stack_a)
 	total_pairs = 0;
 	while (i < size)
 	{
+		list_j = list_i->next;
+        j = i + 1;
 		while (j < size)
 		{
 			total_pairs += 1;
@@ -42,7 +44,6 @@ float	compute_disorder(t_list **stack_a)
 		}
 		if (list_i->next)
 			list_i = list_i->next;
-		list_j = list_i->next;
 		i++;
 	}
 	return (((float)mistakes / (float)total_pairs) * 100);
