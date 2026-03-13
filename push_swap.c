@@ -45,11 +45,11 @@ void	ft_push_swap(t_list **st_a, t_list **st_b, t_oper **op, p_list **param)
 {
 	if (ft_lstsize(*st_a) <= 1 || ft_is_sorted(*st_a))
 	{
-		ft_lstclear_all(st_a, st_b, param, op);
+		lstclear_all(st_a, st_b, param, op);
 		return ;
 	}
 	set_alg(param, st_a, st_b, op);
-	ft_lstclear_all(st_a, st_b, param, op);
+	lstclear_all(st_a, st_b, param, op);
 }
 
 int	main(int argc, char *argv[])
@@ -75,7 +75,7 @@ int	main(int argc, char *argv[])
 		if (ft_split(argv[argc], ' ', &st_a) == NULL)
 		{
 			write(2, "Error\n", 6);
-			return (ft_lstclear_all(&st_a, &st_b, &param, &op), 0);
+			return (lstclear_all(&st_a, &st_b, &param, &op), 0);
 		}
 	}
 	ft_push_swap(&st_a, &st_b, &op, &param);

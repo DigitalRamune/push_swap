@@ -66,7 +66,7 @@ void	order_alg(int temp_min_data, t_list **st_a, t_list **st_b, t_oper **op)
 	order_b(st_a, st_b, op, 1);
 }
 
-void	top_nb_min_in_score(t_list **st_a, t_list **st_b, int max_score, t_oper **op)
+void	sort_to_b(t_list **st_a, t_list **st_b, int max_score, t_oper **op)
 {
 	int		index_score;
 	int		temp_min_data;
@@ -104,7 +104,7 @@ void	ft_medium_alg(t_list **stack_a, t_list **stack_b, t_oper **operation)
 			max_score = bucket;
 		current = current->next;
 	}
-	top_nb_min_in_score(stack_a, stack_b, max_score, operation);
+	sort_to_b(stack_a, stack_b, max_score, operation);
 	while (ft_lstsize(*stack_a) > 0)
 		ft_push(stack_a, stack_b, operation, 1);
 	while (ft_lstsize(*stack_b) > 0)

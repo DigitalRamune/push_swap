@@ -67,12 +67,12 @@ void	ft_lstclear_param(p_list **lst)
 	return ;
 }
 
-void	ft_lstclear_all(t_list **stack_a, t_list **stack_b, p_list **param, t_oper **op)
+void	lstclear_all(t_list **st_a, t_list **st_b, p_list **param, t_oper **op)
 {
 	if ((*param)->choice)
 		free((*param)->choice);
-	ft_lstclear(stack_a);
-	ft_lstclear(stack_b);
+	ft_lstclear(st_a);
+	ft_lstclear(st_b);
 	ft_lstclear_op(op);
 	ft_lstclear_param(param);
 }

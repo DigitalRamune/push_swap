@@ -50,7 +50,7 @@ t_oper	*ft_lstnew_op(int data)
 
 p_list	*ft_lstnew_param(int data)
 {
-	p_list *elem;
+	p_list	*elem;
 
 	elem = malloc(sizeof(p_list));
 	if (!elem)

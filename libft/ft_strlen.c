@@ -15,6 +15,7 @@
 size_t	ft_strlen(const char *s)
 {
 	int	i;
+
 	if (!s)
 		return (0);
 	i = 0;
@@ -22,8 +23,3 @@ size_t	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
-
-// int	main(void)
-// {
-// 	printf("La taille de la phrase :%lu \n", ft_strlen("Hellyeah"));
-// }

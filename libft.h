@@ -93,7 +93,7 @@ typedef	struct param_list
 	struct param_list	*next;
 }						p_list;
 
-void	ft_lstclear_all(t_list **stack_a, t_list **stack_b, p_list **param, t_oper **op);
+void	lstclear_all(t_list **st_a, t_list **st_b, p_list **param, t_oper **op);
 
 t_oper	*ft_lstnew_op(int data);
 void	ft_lstadd_front_op(t_oper **lst, t_oper *new);
@@ -139,7 +139,7 @@ int		find_max(t_list **stack_a);
 
 void	ft_medium_alg(t_list **stack_a, t_list **stack_b, t_oper **operation);
 int		ft_bucket_no(int data, int size, int max);
-void	top_nb_min_in_score(t_list **st_a, t_list **st_b, int max_score, t_oper **op);
+void	sort_to_b(t_list **st_a, t_list **st_b, int max_score, t_oper **op);
 void	find_max2(t_list **next_p, t_oper **operation);
 int		find_score(t_list **stack_a, int index_score, int size, int *temp_min_data);
 void	place_max_at_top(t_list **next_p, int index, t_oper **operation);
