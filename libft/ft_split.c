@@ -6,7 +6,7 @@
 /*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 15:38:01 by ffeder            #+#    #+#             */
-/*   Updated: 2026/03/12 16:11:48 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/13 15:21:30 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,27 +98,35 @@ static char	**spliting(char **arr, char const *s, char c)
 	return (arr);
 }
 
-int	ft_check_duplicate(t_list **stack_a, int nb, char **arr, int index)
+int	ft_check_duplicate(t_list **stack_a, int nb)
 {
-	t_list	*check;
+	t_list	*current;
 
-	check = *stack_a;
-	while (check)
+	if (!stack_a || !*stack_a)
+		return (1);
+	current = *stack_a;
+	while (current)
 	{
-		if (check->data == nb)
-		{
-			write(2, "Error\n", 6);
-			while (arr[index])
-			{
-				free(arr[index]);
-				arr[index] = NULL;
-				index++;
-			}
+		if (current->data == nb)
 			return (0);
-		}
-		check = check->next;
+		current = current->next;
 	}
 	return (1);
+}
+
+void	ft_free_split(char **arr)
+{
+	int	i;
+
+	i = 0;
+	if (!arr)
+		return ;
+	while (arr[i])
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
 }
 
 t_list	**ft_split(char const *s, char c, t_list **stack_a)
@@ -135,15 +143,16 @@ t_list	**ft_split(char const *s, char c, t_list **stack_a)
 		return (NULL);
 	spliting(arr, s, c);
 	while (arr[i])
-	{
-		nb = ft_atoi(arr[i]);
-		if (ft_check_duplicate(stack_a, nb, arr, i) == 0)
-			return (free(arr), arr = NULL, NULL);
-		ft_lstadd_front(stack_a, ft_lstnew(nb));
-		free(arr[i]);
 		i++;
+	while (--i >= 0)
+	{
+		if (ft_is_valid_number(arr[i]) == 0)
+			return (ft_free_split(arr), NULL);
+		nb = ft_atoi(arr[i]);
+		if (ft_check_duplicate(stack_a, nb) == 0)
+			return (ft_free_split(arr), NULL);
+		ft_lstadd_front(stack_a, ft_lstnew(nb));
 	}
-	free(arr);
-	arr = NULL;
+	ft_free_split(arr);
 	return (stack_a);
 }

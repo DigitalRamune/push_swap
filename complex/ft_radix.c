@@ -6,7 +6,7 @@
 /*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 13:53:54 by inaciri           #+#    #+#             */
-/*   Updated: 2026/03/13 14:01:55 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/13 15:56:05 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,6 +146,6 @@ void	ft_radix(t_list **stack_a, t_list **stack_b, t_oper **operation)
 
 	bits = 0;
 	size = ft_lstsize(*stack_a);
-	maxbits = ft_bits_num(size - 1);
+	maxbits = ft_bits_num(size);
 	ft_radix_loop(stack_a, stack_b, operation, maxbits, bits);
 }

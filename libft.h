@@ -6,7 +6,7 @@
 /*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 12:30:58 by ffeder            #+#    #+#             */
-/*   Updated: 2026/03/13 13:48:44 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/13 15:20:32 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,7 @@ void	find_max2(t_list **next_p, t_oper **operation);
 int		find_score(t_list **stack_a, int index_score, int size, int *temp_min_data);
 void	place_max_at_top(t_list **next_p, int index, t_oper **operation);
 void	order_alg(int temp_min_data, int index, t_list **stack_a, t_list **stack_b, t_oper **operation);
+void	ft_free_split(char **arr);
 t_list	**ft_split(char const *s, char c, t_list **stack_a);
 
 int		find_min_radix(t_list **stack, int list_size);
@@ -170,6 +171,6 @@ void	ft_init_lists(t_oper **operations, p_list **param);
 int		ft_result_after_check(char **argv, p_list **param);
 
 void	ft_push_swap(t_list **stack_a, t_list **stack_b, t_oper **op, p_list **param);
-int		ft_check_duplicate(t_list **stack_a, int nb, char **arr, int index);
+int		ft_check_duplicate(t_list **stack_a, int nb);
 
 #endif
