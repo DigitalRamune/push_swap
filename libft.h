@@ -167,10 +167,11 @@ void	print_bench(p_list **param, t_oper **op, float disorder);
 void	ft_bench(t_oper **op, p_list **param, t_list **stack_a, t_list **stack_b);
 
 void	ft_create_stack(t_list **stack_a, char **argv, int i, int z);
+void	ft_init(t_list **st_a, t_list **st_b, t_oper **op, p_list **param);
 void	ft_init_lists(t_oper **operations, p_list **param);
 int		ft_result_after_check(char **argv, p_list **param);
 
-void	ft_push_swap(t_list **stack_a, t_list **stack_b, t_oper **op, p_list **param);
+void	ft_push_swap(t_list **st_a, t_list **st_b, t_oper **op, p_list **param);
 int		ft_check_duplicate(t_list **stack_a, int nb);
 
 #endif

@@ -45,3 +45,12 @@ void	ft_init_lists(t_oper **operations, p_list **param)
 	ft_lstadd_front_op(operations, ft_lstnew_op(0));
 	ft_lstadd_front_param(param,ft_lstnew_param(0));
 }
+
+void	ft_init(t_list **st_a, t_list **st_b, t_oper **op, p_list **param)
+{
+	*st_a = NULL;
+	*st_b = NULL;
+	*op = NULL;
+	*param = NULL;
+	ft_init_lists(op, param);
+}

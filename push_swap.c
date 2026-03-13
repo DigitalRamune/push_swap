@@ -28,7 +28,7 @@ void	printlist(t_list *next_p)
 int	ft_is_sorted(t_list *st_a)
 {
 	t_list	*check;
-	
+
 	if (!st_a)
 		return (1);
 	check = st_a;
@@ -41,51 +41,42 @@ int	ft_is_sorted(t_list *st_a)
 	return (1);
 }
 
-void	ft_push_swap(t_list **stack_a, t_list **stack_b, t_oper **op, p_list **param)
+void	ft_push_swap(t_list **st_a, t_list **st_b, t_oper **op, p_list **param)
 {
-	if (ft_lstsize(*stack_a) <= 1 || ft_is_sorted(*stack_a))
+	if (ft_lstsize(*st_a) <= 1 || ft_is_sorted(*st_a))
 	{
-		ft_lstclear_all(stack_a, stack_b, param, op);
+		ft_lstclear_all(st_a, st_b, param, op);
 		return ;
 	}
-	// printf("AVANT set_alg - Stack A:\n");
-    // printlist(*stack_a);
-	set_alg(param, stack_a, stack_b, op);
-	// printf("APRES set_alg - Stack A:\n");
-    // printlist(*stack_a);
-	ft_lstclear_all(stack_a, stack_b, param, op);
+	set_alg(param, st_a, st_b, op);
+	ft_lstclear_all(st_a, st_b, param, op);
 }
 
 int	main(int argc, char *argv[])
 {
-	int		i;
 	int		z;
-	t_list	*stack_a;
-	t_list	*stack_b;
-	t_oper	*operations;
+	t_list	*st_a;
+	t_list	*st_b;
+	t_oper	*op;
 	p_list	*param;
 
-	stack_a = NULL;
-	stack_b = NULL;
-	operations = NULL;
+	st_a = NULL;
+	st_b = NULL;
+	op = NULL;
 	param = NULL;
 	if (argc < 2)
 		return (0);
-	ft_init_lists(&operations, &param);
+	ft_init(&st_a, &st_b, &op, &param);
 	z = ft_detect(argv[1], &param) + 1;
 	if (z == 1)
 		param->adaptiv = 1;
-	// z = ft_result_after_check(argv, &param);
-	// if (z == 0)
-	// 	return (ft_lstclear_all(&stack_a, &stack_b, &param, &operations), 0);
-	i = argc;
-	while (--i >= z)
+	while (--argc >= z)
 	{
-		if (ft_split(argv[i], ' ', &stack_a) == NULL)
+		if (ft_split(argv[argc], ' ', &st_a) == NULL)
 		{
 			write(2, "Error\n", 6);
-			return (ft_lstclear_all(&stack_a, &stack_b, &param, &operations), 0);
+			return (ft_lstclear_all(&st_a, &st_b, &param, &op), 0);
 		}
 	}
-	ft_push_swap(&stack_a, &stack_b, &operations, &param);
+	ft_push_swap(&st_a, &st_b, &op, &param);
 }
