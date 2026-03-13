@@ -26,15 +26,15 @@ int	ft_bucket_no(int data, int size, int max)
 	return (bucket);
 }
 
-void	order_b(t_list **stack_a, t_list **stack_b, t_oper **operations, int opt)
+void	order_b(t_list **st_a, t_list **st_b, t_oper **op, int opt)
 {
 	int		size;
 	int		temp;
 	t_list	*current;
 
-	current = *stack_b;
-	size = ft_lstsize(*stack_b);
-	(void)stack_a;
+	current = *st_b;
+	size = ft_lstsize(*st_b);
+	(void)st_a;
 	if (opt == 1 && size)
 	{
 		temp = current->data;
@@ -42,51 +42,47 @@ void	order_b(t_list **stack_a, t_list **stack_b, t_oper **operations, int opt)
 		{
 			temp = current->data;
 			if (temp > current->data)
-				ft_rotate(stack_b, operations, 1);
+				ft_rotate(st_b, op, 1);
 			temp = current->data;
 			current = current->next;
 		}
 	}
 }
 
-void	order_alg(int temp_min_data, t_list **stack_a, t_list **stack_b, t_oper **operation)
+void	order_alg(int temp_min_data, t_list **st_a, t_list **st_b, t_oper **op)
 {
 	t_list	*current;
 	int		index;
 
 	index = 0;
-	current = *stack_a;
+	current = *st_a;
 	while (current != NULL && current->data != temp_min_data)
 	{
 		index++;
 		current = current->next;
 	}
-	place_min_at_top(stack_a, index, operation);
-	ft_push(stack_a, stack_b, operation, 1);
-	order_b(stack_a, stack_b, operation, 1);
+	place_min_at_top(st_a, index, op);
+	ft_push(st_a, st_b, op, 1);
+	order_b(st_a, st_b, op, 1);
 }
 
-void	top_nb_min_in_score(t_list **stack_a, t_list **stack_b, int max_score, t_oper **operation)
+void	top_nb_min_in_score(t_list **st_a, t_list **st_b, int max_score, t_oper **op)
 {
-	t_list	*current;
 	int		index_score;
 	int		temp_min_data;
 	int		size;
 
-	size = ft_lstsize(*stack_a);
+	size = ft_lstsize(*st_a);
 	index_score = 0;
-	current = *stack_a;
 	while (index_score <= max_score)
 	{
-		if (!ft_lstsize(*stack_a))
+		if (!ft_lstsize(*st_a))
 			return ;
-		current = *stack_a;
-		if (find_score(stack_a, index_score, size, &temp_min_data))
-			order_alg(temp_min_data, stack_a, stack_b, operation);
+		if (find_score(st_a, index_score, size, &temp_min_data))
+			order_alg(temp_min_data, st_a, st_b, op);
 		else
 			index_score += 1;
 	}
-	return ;
 }
 
 void	ft_medium_alg(t_list **stack_a, t_list **stack_b, t_oper **operation)

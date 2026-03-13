@@ -81,8 +81,6 @@ int	ft_check_all(char **argv, p_list **param)
 	{
 		if (i > 1 && ft_detect(argv[i], param) == 1)
 			return (-1);
-		// if (ft_atoi(argv[i]) > INT_MAX || ft_atoi(argv[i]) < INT_MIN)
-		// 	return (-1);
 		if (i > 1 && ft_is_valid_number(argv[i]) == 0)
 			return (-1);
 		i++;

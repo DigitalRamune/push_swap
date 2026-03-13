@@ -14,7 +14,7 @@
 
 void	ft_create_stack(t_list **stack_a, char **argv, int i, int z)
 {
-	int	f;
+	int		f;
 	t_list	*check;
 
 	check = *stack_a;
@@ -43,7 +43,7 @@ void	ft_create_stack(t_list **stack_a, char **argv, int i, int z)
 void	ft_init_lists(t_oper **operations, p_list **param)
 {
 	ft_lstadd_front_op(operations, ft_lstnew_op(0));
-	ft_lstadd_front_param(param,ft_lstnew_param(0));
+	ft_lstadd_front_param(param, ft_lstnew_param(0));
 }
 
 void	ft_init(t_list **st_a, t_list **st_b, t_oper **op, p_list **param)

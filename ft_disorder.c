@@ -16,36 +16,28 @@ float	compute_disorder(t_list **stack_a)
 {
 	int		mistakes;
 	int		total_pairs;
-	int		i;
-	int		size;
-	int		j;
 	t_list	*list_i;
 	t_list	*list_j;
 
-	list_i = *stack_a;
-	list_j = list_i->next;
-	size = ft_lstsize(*stack_a);
-	i = 0;
-	j = 1;
+	if (!stack_a || !*stack_a)
+		return (0);
 	mistakes = 0;
 	total_pairs = 0;
-	while (i < size)
+	list_i = *stack_a;
+	while (list_i != NULL)
 	{
 		list_j = list_i->next;
-        j = i + 1;
-		while (j < size)
+		while (list_j != NULL)
 		{
-			total_pairs += 1;
+			total_pairs++;
 			if (list_i->data > list_j->data)
-				mistakes += 1;
-			if (list_j->next)
-				list_j = list_j->next;
-			j++;
+				mistakes++;
+			list_j = list_j->next;
 		}
-		if (list_i->next)
-			list_i = list_i->next;
-		i++;
+		list_i = list_i->next;
 	}
+	if (total_pairs == 0)
+		return (0);
 	return (((float)mistakes / (float)total_pairs) * 100);
 }
 
