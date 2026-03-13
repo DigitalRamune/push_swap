@@ -17,7 +17,7 @@ void	ft_swap(t_list **stack_a, t_oper **operation, int which)
 	t_list	*second;
 
 	if (!stack_a || !(*stack_a) || !(*stack_a)->next)
-        return ;
+		return ;
 	second = (*stack_a)->next;
 	(*stack_a)->next = second->next;
 	second->next = (*stack_a);
@@ -42,6 +42,5 @@ void	ft_ss(t_list **stack_a, t_list **stack_b, t_oper **operation)
 	ft_swap(stack_a, operation, 3);
 	ft_swap(stack_b, operation, 3);
 	if ((*operation)->print == 0)
-			printf("ss\n");
+		printf("ss\n");
 }
-

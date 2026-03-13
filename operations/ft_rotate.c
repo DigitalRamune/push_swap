@@ -46,7 +46,7 @@ void	ft_rrr(t_list **stack_a, t_list **stack_b, t_oper **operation)
 	ft_reverserotate(stack_a, operation, 3);
 	ft_reverserotate(stack_b, operation, 3);
 	if ((*operation)->print == 0)
-			printf("rrr\n");
+		printf("rrr\n");
 }
 
 void	ft_rotate(t_list **stack_a, t_oper **operation, int which)
@@ -83,5 +83,5 @@ void	ft_rr(t_list **stack_a, t_list **stack_b, t_oper **operation)
 	ft_rotate(stack_a, operation, 3);
 	ft_rotate(stack_b, operation, 3);
 	if ((*operation)->print == 0)
-			printf("rr\n");
+		printf("rr\n");
 }

@@ -45,20 +45,20 @@ int	ft_check_all(char **argv, p_list **param)
 	int	z;
 
 	i = 1;
-	z = 0;
-	if (ft_detect(argv[i], param) == 0)
+	z = (ft_detect(argv[1], param) == 0);
+	if (z)
 	{
-		if (argv[1][0] != '0' && (ft_atoi(argv[1]) == 0))
+		if (ft_atoi(argv[i]) == 0 && argv[i][0] != '0')
 			return (-1);
-		z = 1;
 		(*param)->adaptiv = 1;
 	}
-	i++;
 	while (argv[i])
 	{
-		if (ft_detect(argv[i], param) == 1)
+		if (i > 1 && ft_detect(argv[i], param) == 1)
 			return (-1);
-		else if (argv[i][0] == '-' && (ft_atoi(argv[i]) == 0))
+		if (ft_atoi(argv[i]) > INT_MAX || ft_atoi(argv[i]) < INT_MIN)
+			return (-1);
+		if (i > 1 && ft_atoi(argv[i]) == 0 && argv[i][0] != '0')
 			return (-1);
 		i++;
 	}

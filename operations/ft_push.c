@@ -12,16 +12,16 @@
 
 #include "../libft.h"
 
-void	ft_push(t_list **stack_a, t_list **stack_b, t_oper **operation, int	which)
+void	ft_push(t_list **st_a, t_list **st_b, t_oper **operation, int which)
 {
 	t_list	*elem_to_remove;
 
-	if (stack_a && *stack_a)
+	if (st_a && *st_a)
 	{
-		elem_to_remove = *stack_a;
-		*stack_a = (*stack_a)->next;
-		elem_to_remove->next = *stack_b;
-		*stack_b = elem_to_remove;
+		elem_to_remove = *st_a;
+		*st_a = (*st_a)->next;
+		elem_to_remove->next = *st_b;
+		*st_b = elem_to_remove;
 	}
 	if (which == 0)
 	{
