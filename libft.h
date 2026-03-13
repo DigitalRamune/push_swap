@@ -129,6 +129,7 @@ char	*ft_strdup(const char *s);
 
 int		find_index_of_max(t_list **stack_a);
 void	ft_sort_three(t_list **st_a, t_oper **op);
+void	ft_sort_small(t_list **st_a, t_list **st_b, t_oper **op);
 void	ft_simple_mini(t_list **st_a, t_list **st_b, t_oper **op);
 void	ft_simple_alg(t_list **stack_a, t_list **stack_b, t_oper **operation);
 void	place_min_at_top(t_list **next_p, int index, t_oper **operation);

@@ -12,32 +12,6 @@
 
 #include "../libft.h"
 
-int	find_index_of_max(t_list **stack_a)
-{
-	int		max;
-	int		index;
-	t_list	*current;
-
-	current = *stack_a;
-	max = current->data;
-	index = 1;
-	while (current->next != NULL)
-	{
-		if (current->data > max)
-			max = current->data;
-		current = current->next;
-	}
-	if (current->data > max)
-		max = current->data;
-	current = *stack_a;
-	while (current->data != max)
-	{
-		index++;
-		current = current->next;
-	}
-	return (index);
-}
-
 void	ft_sort_three(t_list **st_a, t_oper **op)
 {
 	int		max_pos;
@@ -54,6 +28,26 @@ void	ft_sort_three(t_list **st_a, t_oper **op)
 	return ;
 }
 
+void	ft_sort_small(t_list **st_a, t_list **st_b, t_oper **op)
+{
+	int	push_count;
+
+	push_count = 0;
+	while (ft_lstsize(*st_a) > 3)
+	{
+		find_min(st_a, op);
+		ft_push(st_a, st_b, op, 1);
+		push_count++;
+	}
+	ft_sort_three(st_a, op);
+	while (push_count != 0)
+	{
+		ft_push(st_b, st_a, op, 0);
+		push_count--;
+	}
+	return ;
+}
+
 void	ft_simple_mini(t_list **st_a, t_list **st_b, t_oper **op)
 {
 	int	size;
@@ -65,8 +59,8 @@ void	ft_simple_mini(t_list **st_a, t_list **st_b, t_oper **op)
 	{
 		ft_sort_three(st_a, op);
 	}
-	// else if (size <= 10)
-	// 	ft_sort_small(st_a, st_b, op);
+	else if (size <= 10)
+		ft_sort_small(st_a, st_b, op);
 }
 
 void	ft_simple_alg(t_list **stack_a, t_list **stack_b, t_oper **operation)
@@ -75,7 +69,7 @@ void	ft_simple_alg(t_list **stack_a, t_list **stack_b, t_oper **operation)
 	int		size;
 
 	size = ft_lstsize(*stack_a);
-	if (size <= 3)
+	if (size <= 10)
 	{
 		ft_simple_mini(stack_a, stack_b, operation);
 		return;

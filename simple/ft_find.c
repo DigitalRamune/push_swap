@@ -37,3 +37,29 @@ void	find_min(t_list **next_p, t_oper **operation)
 	}
 	place_min_at_top(next_p, index, operation);
 }
+
+int	find_index_of_max(t_list **stack_a)
+{
+	int		max;
+	int		index;
+	t_list	*current;
+
+	current = *stack_a;
+	max = current->data;
+	index = 1;
+	while (current->next != NULL)
+	{
+		if (current->data > max)
+			max = current->data;
+		current = current->next;
+	}
+	if (current->data > max)
+		max = current->data;
+	current = *stack_a;
+	while (current->data != max)
+	{
+		index++;
+		current = current->next;
+	}
+	return (index);
+}

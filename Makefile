@@ -52,7 +52,7 @@ ${NAME}: ${OBJS}
 	@${CC} ${CFLAGS} -c $< -o $@
 	
 run:
-	./$(NAME) --complex $$(shuf -i 1-10000 -n 20)
+	./$(NAME) --bench $$(shuf -i 1-10000 -n 5)
 clean :
 	rm -rf ${OBJS}
 
