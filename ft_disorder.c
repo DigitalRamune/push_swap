@@ -60,17 +60,17 @@ int	ft_adaptive(p_list **param, t_list **stack_a)
 	(*param)->adaptiv = 0;
 	if ((disorder < 20 && size <= 50) || (disorder == 100.00 && size == 2))
 	{
-		(*param)->choice = ft_strdup("simple");
+		(*param)->choice = ft_strdup("Simple / O(n^2)");
 		(*param)->simple = 1;
 	}
 	else if (disorder <= 50 && size <= 200)
 	{
-		(*param)->choice = ft_strdup("medium");
+		(*param)->choice = ft_strdup("Medium / O(n√n)");
 		(*param)->medium = 1;
 	}
 	else
 	{
-		(*param)->choice = ft_strdup("complex");
+		(*param)->choice = ft_strdup("Complex / O(n log n)");
 		(*param)->complex = 1;
 	}
 	return (0);
