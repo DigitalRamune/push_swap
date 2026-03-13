@@ -86,7 +86,7 @@ void	place_max_at_top(t_list **next_p, int index, t_oper **operation)
 	{
 		while (i < index)
 		{
-			ft_rotate(next_p, operation, 0);
+			ft_rotate(next_p, operation, 1);
 			i++;
 		}
 	}
@@ -94,7 +94,7 @@ void	place_max_at_top(t_list **next_p, int index, t_oper **operation)
 	{
 		while (i < (ft_lstsize(*next_p) - index))
 		{
-			ft_reverserotate(next_p, operation, 0);
+			ft_reverserotate(next_p, operation, 1);
 			i++;
 		}
 	}

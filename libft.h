@@ -143,7 +143,7 @@ void	top_nb_min_in_score(t_list **stack_a, t_list **stack_b, int max_score, t_op
 void	find_max2(t_list **next_p, t_oper **operation);
 int		find_score(t_list **stack_a, int index_score, int size, int *temp_min_data);
 void	place_max_at_top(t_list **next_p, int index, t_oper **operation);
-void	order_alg(int temp_min_data, int index, t_list **stack_a, t_list **stack_b, t_oper **operation);
+void	order_alg(int temp_min_data, t_list **stack_a, t_list **stack_b, t_oper **operation);
 void	ft_free_split(char **arr);
 t_list	**ft_split(char const *s, char c, t_list **stack_a);
 

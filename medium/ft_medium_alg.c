@@ -49,12 +49,14 @@ void	order_b(t_list **stack_a, t_list **stack_b, t_oper **operations, int opt)
 	}
 }
 
-void	order_alg(int temp_min_data, int index, t_list **stack_a, t_list **stack_b, t_oper **operation)
+void	order_alg(int temp_min_data, t_list **stack_a, t_list **stack_b, t_oper **operation)
 {
 	t_list	*current;
+	int		index;
 
+	index = 0;
 	current = *stack_a;
-	while (current->data != temp_min_data)
+	while (current != NULL && current->data != temp_min_data)
 	{
 		index++;
 		current = current->next;
@@ -69,21 +71,18 @@ void	top_nb_min_in_score(t_list **stack_a, t_list **stack_b, int max_score, t_op
 	t_list	*current;
 	int		index_score;
 	int		temp_min_data;
-	int		index;
 	int		size;
 
 	size = ft_lstsize(*stack_a);
 	index_score = 0;
-	index = 0;
 	current = *stack_a;
 	while (index_score <= max_score)
 	{
 		if (!ft_lstsize(*stack_a))
 			return ;
 		current = *stack_a;
-		index = 0;
 		if (find_score(stack_a, index_score, size, &temp_min_data))
-			order_alg(temp_min_data, index, stack_a, stack_b, operation);
+			order_alg(temp_min_data, stack_a, stack_b, operation);
 		else
 			index_score += 1;
 	}
@@ -110,12 +109,6 @@ void	ft_medium_alg(t_list **stack_a, t_list **stack_b, t_oper **operation)
 		current = current->next;
 	}
 	top_nb_min_in_score(stack_a, stack_b, max_score, operation);
-	// while (size != 0)
-	// {
-	// 	find_max2(stack_b, operation);
-	// 	ft_push(stack_b, stack_a, operation, 0);
-	// 	size--;
-	// }
 	while (ft_lstsize(*stack_a) > 0)
 		ft_push(stack_a, stack_b, operation, 1);
 	while (ft_lstsize(*stack_b) > 0)
