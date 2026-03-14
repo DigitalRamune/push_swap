@@ -34,37 +34,41 @@ void	print_bench(t_para **param, t_oper **op, float disorder)
 void	ft_bench(t_oper **op, t_para **param, t_list **st_a, t_list **st_b)
 {
 	float	disorder;
+	int		alg_nbr;
 
-	(*op)->print = 1;
+	alg_nbr = (*param)->complex + (*param)->medium + (*param)->simple;
 	(*param)->bench = 0;
-	ft_adaptive(param, st_a);
 	disorder = compute_disorder(st_a);
-	set_alg(param, st_a, st_b, op);
+	if (alg_nbr == 1)
+	{
+		(*op)->print = -1;
+		set_alg(param, st_a, st_b, op);
+	}
+	else
+	{
+		ft_adaptive(param, st_a);
+		set_alg(param, st_a, st_b, op);
+	}
 	print_bench(param, op, disorder);
 }
 
 void	set_alg(t_para **param, t_list **stack_a, t_list **stack_b, t_oper **op)
 {
-	if ((*param)->complex == 1)
+	if ((*param)->bench == 1)
+		ft_bench(op, param, stack_a, stack_b);
+	else if ((*param)->complex == 1)
 	{
 		set_base_rank(stack_a);
 		set_all_rank(stack_a);
-		ft_radix(stack_a, stack_b, op);
+		ft_radix(stack_a, stack_b, op, param);
 	}
 	else if ((*param)->medium == 1)
 		ft_medium_alg(stack_a, stack_b, op);
 	else if ((*param)->simple == 1)
-		ft_simple_alg(stack_a, stack_b, op);
-	else if ((*param)->bench == 1 || (*param)->adaptiv == 1)
+		ft_simple_alg(stack_a, stack_b, op, param);
+	else if ((*param)->adaptiv == 1)
 	{
-		if ((*param)->bench == 1)
-		{
-			ft_bench(op, param, stack_a, stack_b);
-		}
-		else
-		{
-			ft_adaptive(param, stack_a);
-			set_alg(param, stack_a, stack_b, op);
-		}
+		ft_adaptive(param, stack_a);
+		set_alg(param, stack_a, stack_b, op);
 	}
 }

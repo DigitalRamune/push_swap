@@ -63,28 +63,30 @@ void	ft_simple_mini(t_list **st_a, t_list **st_b, t_oper **op)
 		ft_sort_small(st_a, st_b, op);
 }
 
-void	ft_simple_alg(t_list **stack_a, t_list **stack_b, t_oper **operation)
+void	ft_simple_alg(t_list **st_a, t_list **st_b, t_oper **op, t_para **param)
 {
 	int		index;
 	int		size;
 
-	size = ft_lstsize(*stack_a);
+	size = ft_lstsize(*st_a);
 	if (size <= 10)
 	{
-		ft_simple_mini(stack_a, stack_b, operation);
+		ft_simple_mini(st_a, st_b, op);
 		return ;
 	}
 	index = 0;
 	while (index < size - 1)
 	{
-		find_min(stack_a, operation);
-		ft_push(stack_a, stack_b, operation, 0);
+		find_min(st_a, op);
+		ft_push(st_a, st_b, op, 0);
 		index++;
 	}
 	index = 0;
 	while (index < size - 1)
 	{
-		ft_push(stack_b, stack_a, operation, 1);
+		ft_push(st_b, st_a, op, 1);
 		index++;
 	}
+	if ((*op)->print == -1)
+		ft_print_choice(1, param);
 }

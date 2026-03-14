@@ -16,7 +16,7 @@ size_t	ft_printadress(int fd, void *p)
 {
 	if (!p)
 		return (ft_putstr(fd, "(nil)"));
-	ft_putstr(fd,"0x");
+	ft_putstr(fd, "0x");
 	return (ft_printhexa(fd, (unsigned long long)p, 1) + 2);
 }
 

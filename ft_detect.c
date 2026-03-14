@@ -41,69 +41,31 @@ int	ft_is_valid_number(char *str)
 	return (1);
 }
 
-int	ft_detect(char *argv, t_para **param)
-{
-	if (ft_strncmp(argv, "--simple", ft_strlen(argv)) == 0)
-	{
-		(*param)->simple += 1;
-	}
-	else if (ft_strncmp(argv, "--medium", ft_strlen(argv)) == 0)
-	{
-		(*param)->medium += 1;
-	}
-	else if (ft_strncmp(argv, "--complex", ft_strlen(argv)) == 0)
-	{
-		(*param)->complex += 1;
-	}
-	else if (ft_strncmp(argv, "--adaptiv", ft_strlen(argv)) == 0)
-	{
-		(*param)->adaptiv += 1;
-	}
-	else if (ft_strncmp(argv, "--bench", ft_strlen(argv)) == 0)
-	{
-		(*param)->bench += 1;
-	}
-	else
-		return (0);
-	return (1);
-}
-
-int	ft_check_all(char **argv, t_para **param)
+int	ft_detect(int argc, char **argv, t_para **param)
 {
 	int	i;
-	int	z;
+	int	alg_nbr;
 
 	i = 1;
-	z = (ft_detect(argv[1], param) == 0);
-	if (z)
+	while (i < argc && argv[i][0] == '-' && argv[i][1] == '-')
 	{
-		if (ft_is_valid_number(argv[1]) == 0)
-			return (-1);
-		(*param)->adaptiv = 1;
-	}
-	while (argv[i])
-	{
-		if (i > 1 && ft_detect(argv[i], param) == 1)
-			return (-1);
-		if (i > 1 && ft_is_valid_number(argv[i]) == 0)
-			return (-1);
+		if (strncmp(argv[i], "--bench", ft_strlen(argv[i])) == 0)
+			(*param)->bench += 1;
+		else if (strncmp(argv[i], "--simple", ft_strlen(argv[i])) == 0)
+			(*param)->simple = 1;
+		else if (strncmp(argv[i], "--medium", ft_strlen(argv[i])) == 0)
+			(*param)->medium = 1;
+		else if (strncmp(argv[i], "--complex", ft_strlen(argv[i])) == 0)
+			(*param)->complex = 1;
+		else if (strncmp(argv[i], "--adaptiv", ft_strlen(argv[i])) == 0)
+			(*param)->adaptiv = 2;
 		i++;
 	}
-	return (1 + z);
-}
-
-int	ft_result_after_check(char **argv, t_para **param)
-{
-	int	result;
-
-	result = ft_check_all(argv, param);
-	if (result == -1)
-	{
-		write(2, "Error\n", 6);
+	alg_nbr = (*param)->simple + (*param)->medium;
+	alg_nbr += (*param)->complex +(*param)->adaptiv;
+	if (alg_nbr == 0)
+		(*param)->adaptiv = 1;
+	if ((alg_nbr > 1 && (*param)->adaptiv < 2) || (*param)->bench > 1)
 		return (0);
-	}
-	else if (result == 1)
-		return (2);
-	else
-		return (1);
+	return (i);
 }

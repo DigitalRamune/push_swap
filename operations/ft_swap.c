@@ -25,14 +25,12 @@ void	ft_swap(t_list **stack_a, t_oper **operation, int which)
 	if (which == 1)
 	{
 		(*operation)->sb += 1;
-		if ((*operation)->print == 0)
-			write(1, "sb\n", 3);
+		write(1, "sb\n", 3);
 	}
 	else if (which == 0)
 	{
 		(*operation)->sa += 1;
-		if ((*operation)->print == 0)
-			write(1, "sa\n", 3);
+		write(1, "sa\n", 3);
 	}
 	return ;
 }
@@ -41,6 +39,5 @@ void	ft_ss(t_list **stack_a, t_list **stack_b, t_oper **operation)
 {
 	ft_swap(stack_a, operation, 3);
 	ft_swap(stack_b, operation, 3);
-	if ((*operation)->print == 0)
-		write(1, "ss\n", 3);
+	write(1, "ss\n", 3);
 }

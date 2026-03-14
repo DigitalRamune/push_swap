@@ -67,9 +67,7 @@ int	main(int argc, char *argv[])
 	if (argc < 2)
 		return (0);
 	ft_init(&st_a, &st_b, &op, &param);
-	z = ft_detect(argv[1], &param) + 1;
-	if (z == 1)
-		param->adaptiv = 1;
+	z = ft_detect(argc, argv, &param);
 	while (--argc >= z)
 	{
 		if (ft_split(argv[argc], ' ', &st_a) == NULL)

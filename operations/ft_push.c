@@ -26,13 +26,11 @@ void	ft_push(t_list **st_a, t_list **st_b, t_oper **operation, int which)
 	if (which == 0)
 	{
 		(*operation)->pa += 1;
-		if ((*operation)->print == 0)
-			write(1, "pa\n", 3);
+		write(1, "pa\n", 3);
 	}
 	else if (which == 1)
 	{
 		(*operation)->pb += 1;
-		if ((*operation)->print == 0)
-			write(1, "pb\n", 3);
+		write(1, "pb\n", 3);
 	}
 }

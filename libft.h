@@ -137,6 +137,7 @@ void					ft_ss(t_list **stack_a, t_list **stack_b,
 							t_oper **operation);
 
 void					printlist(t_list *next_p);
+void					ft_print_choice(int number, t_para **param);
 float					compute_disorder(t_list **stack_a);
 int						ft_adaptive(t_para **param, t_list **stack_a);
 void					set_alg(t_para **param, t_list **stack_a,
@@ -149,8 +150,8 @@ void					ft_sort_small(t_list **st_a, t_list **st_b,
 							t_oper **op);
 void					ft_simple_mini(t_list **st_a, t_list **st_b,
 							t_oper **op);
-void					ft_simple_alg(t_list **stack_a, t_list **stack_b,
-							t_oper **operation);
+void					ft_simple_alg(t_list **st_a, t_list **st_b, t_oper **op,
+							t_para **param);
 void					place_min_at_top(t_list **next_p, int index,
 							t_oper **operation);
 void					find_min(t_list **next_p, t_oper **operation);
@@ -183,13 +184,13 @@ void					ft_push_back_all(t_list **st_b, t_list **st_a,
 							int count, t_oper **op);
 void					ft_radix_loop(t_list **st_a, t_list **st_b, t_oper **op,
 							int maxbits);
-void					ft_radix(t_list **stack_a, t_list **stack_b,
-							t_oper **operation);
+void					ft_radix(t_list **st_a, t_list **st_b, t_oper **op,
+							t_para **param);
 void					ft_set_op_nbr(t_oper **operations);
 
 int						ft_is_digit(char c);
 int						ft_is_valid_number(char *str);
-int						ft_detect(char *argv, t_para **param);
+int						ft_detect(int argc, char **argv, t_para **param);
 int						ft_check_all(char **argv, t_para **param);
 void					set_alg(t_para **param, t_list **stack_a,
 							t_list **stack_b, t_oper **op);

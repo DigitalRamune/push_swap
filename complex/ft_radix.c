@@ -87,12 +87,14 @@ void	ft_radix_loop(t_list **st_a, t_list **st_b, t_oper **op, int maxbits)
 	}
 }
 
-void	ft_radix(t_list **stack_a, t_list **stack_b, t_oper **operation)
+void	ft_radix(t_list **st_a, t_list **st_b, t_oper **op, t_para **param)
 {
 	int	size;
 	int	maxbits;
 
-	size = ft_lstsize(*stack_a);
+	size = ft_lstsize(*st_a);
 	maxbits = ft_bits_num(size);
-	ft_radix_loop(stack_a, stack_b, operation, maxbits);
+	ft_radix_loop(st_a, st_b, op, maxbits);
+	if ((*op)->print == -1)
+		ft_print_choice(3, param);
 }

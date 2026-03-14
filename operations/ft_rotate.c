@@ -30,14 +30,12 @@ void	ft_reverserotate(t_list **stack_a, t_oper **operation, int which)
 	if (which == 0)
 	{
 		(*operation)->rra += 1;
-		if ((*operation)->print == 0)
-			write(1, "rra\n", 4);
+		write(1, "rra\n", 4);
 	}
 	else if (which == 1)
 	{
 		(*operation)->rrb += 1;
-		if ((*operation)->print == 0)
-			write(1, "rrb\n", 4);
+		write(1, "rrb\n", 4);
 	}
 }
 
@@ -45,8 +43,7 @@ void	ft_rrr(t_list **stack_a, t_list **stack_b, t_oper **operation)
 {
 	ft_reverserotate(stack_a, operation, 3);
 	ft_reverserotate(stack_b, operation, 3);
-	if ((*operation)->print == 0)
-		write(1, "rrr\n", 4);
+	write(1, "rrr\n", 4);
 }
 
 void	ft_rotate(t_list **stack_a, t_oper **operation, int which)
@@ -67,14 +64,12 @@ void	ft_rotate(t_list **stack_a, t_oper **operation, int which)
 	if (which == 0)
 	{
 		(*operation)->ra += 1;
-		if ((*operation)->print == 0)
-			write(1, "ra\n", 3);
+		write(1, "ra\n", 3);
 	}
 	else if (which == 1)
 	{
 		(*operation)->rb += 1;
-		if ((*operation)->print == 0)
-			write(1, "rb\n", 3);
+		write(1, "rb\n", 3);
 	}
 }
 
@@ -82,6 +77,5 @@ void	ft_rr(t_list **stack_a, t_list **stack_b, t_oper **operation)
 {
 	ft_rotate(stack_a, operation, 3);
 	ft_rotate(stack_b, operation, 3);
-	if ((*operation)->print == 0)
-		write(1, "rr\n", 3);
+	write(1, "rr\n", 3);
 }

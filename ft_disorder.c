@@ -41,29 +41,40 @@ float	compute_disorder(t_list **stack_a)
 	return (((float)mistakes / (float)total_pairs) * 100);
 }
 
+void	ft_print_choice(int number, t_para **param)
+{
+	if ((*param)->adaptiv == 2)
+		(*param)->choice = ft_strdup("Adaptiv");
+	else if (number == 1)
+		(*param)->choice = ft_strdup("Simple / O(n^2)");
+	else if (number == 2)
+		(*param)->choice = ft_strdup("Medium / O(n√n)");
+	else if (number == 3)
+		(*param)->choice = ft_strdup("Complex / O(n log n)");
+}
+
 int	ft_adaptive(t_para **param, t_list **stack_a)
 {
 	float	disorder;
 	int		size;
 
-	(void)param;
 	size = ft_lstsize(*stack_a);
 	disorder = compute_disorder(stack_a);
-	(*param)->adaptiv = 0;
 	if (size <= 10 || disorder < 20)
 	{
-		(*param)->choice = ft_strdup("Simple / O(n^2)");
+		ft_print_choice(1, param);
 		(*param)->simple = 1;
 	}
 	else if (disorder <= 50 && disorder >= 20 && size <= 200)
 	{
-		(*param)->choice = ft_strdup("Medium / O(n√n)");
+		ft_print_choice(2, param);
 		(*param)->medium = 1;
 	}
 	else
 	{
-		(*param)->choice = ft_strdup("Complex / O(n log n)");
+		ft_print_choice(3, param);
 		(*param)->complex = 1;
 	}
+	(*param)->adaptiv = 0;
 	return (0);
 }
