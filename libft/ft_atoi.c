@@ -41,6 +41,33 @@ int	ft_atoi(const char *str)
 	return (res * neg);
 }
 
+long	ft_atol(const char *str)
+{
+	char	*tempstr;
+	int		neg;
+	long	i;
+	long	res;
+
+	res = 0;
+	tempstr = (char *)str;
+	i = 0;
+	neg = 1;
+	while ((tempstr[i] >= 8 && tempstr[i] <= 13) || tempstr[i] == 32)
+		i++;
+	if (tempstr[i] == '-' || tempstr[i] == '+')
+	{
+		if (tempstr[i] == '-')
+			neg = neg * -1;
+		i++;
+	}
+	while (tempstr[i] >= '0' && tempstr[i] <= '9')
+	{
+		res = res * 10 + (tempstr[i] - '0');
+		i++;
+	}
+	return (res * neg);
+}
+
 // int main()
 // {
 // 	char x = '\f';

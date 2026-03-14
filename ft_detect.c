@@ -19,7 +19,8 @@ int	ft_is_digit(char c)
 
 int	ft_is_valid_number(char *str)
 {
-	int	i;
+	int		i;
+	long	nbr;
 
 	i = 0;
 	if (!str || !str[i])
@@ -34,6 +35,9 @@ int	ft_is_valid_number(char *str)
 			return (0);
 		i++;
 	}
+	nbr = ft_atol(str);
+	if (nbr > 2147483647 || nbr < -2147483648)
+		return (0);
 	return (1);
 }
 

@@ -23,6 +23,7 @@
 # include <unistd.h>
 
 int						ft_atoi(const char *nptr);
+long					ft_atol(const char *str);
 void					ft_bzero(void *s, size_t n);
 void					*ft_memmove(void *dest, const void *src, size_t n);
 void					*ft_memset(void *s, int c, size_t n);
