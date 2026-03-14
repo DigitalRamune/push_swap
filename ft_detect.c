@@ -58,7 +58,7 @@ int	ft_detect(int argc, char **argv, t_para **param)
 		else if (strncmp(argv[i], "--complex", ft_strlen(argv[i])) == 0)
 			(*param)->complex = 1;
 		else if (strncmp(argv[i], "--adaptiv", ft_strlen(argv[i])) == 0)
-			(*param)->adaptiv = 2;
+			(*param)->adaptiv = 1;
 		i++;
 	}
 	alg_nbr = (*param)->simple + (*param)->medium;
@@ -66,6 +66,6 @@ int	ft_detect(int argc, char **argv, t_para **param)
 	if ((alg_nbr > 1) || (*param)->bench > 1)
 		return (0);
 	if (alg_nbr == 0)
-		(*param)->adaptiv = 1;
+		(*param)->adaptiv = 2;
 	return (i);
 }

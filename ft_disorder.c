@@ -43,7 +43,7 @@ float	compute_disorder(t_list **stack_a)
 
 void	ft_print_choice(int number, t_para **param)
 {
-	if ((*param)->adaptiv == 2)
+	if ((*param)->adaptiv == 1)
 		(*param)->choice = ft_strdup("Adaptiv");
 	else if (number == 1)
 		(*param)->choice = ft_strdup("Simple / O(n^2)");
