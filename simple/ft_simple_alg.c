@@ -69,6 +69,8 @@ void	ft_simple_alg(t_list **st_a, t_list **st_b, t_oper **op, t_para **param)
 	int		size;
 
 	size = ft_lstsize(*st_a);
+	if ((*op)->print == -1)
+		ft_print_choice(1, param);
 	if (size <= 10)
 	{
 		ft_simple_mini(st_a, st_b, op);
@@ -87,6 +89,4 @@ void	ft_simple_alg(t_list **st_a, t_list **st_b, t_oper **op, t_para **param)
 		ft_push(st_b, st_a, op, 1);
 		index++;
 	}
-	if ((*op)->print == -1)
-		ft_print_choice(1, param);
 }

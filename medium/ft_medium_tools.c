@@ -51,14 +51,14 @@ int	find_max(t_list **stack_a)
 	return (max);
 }
 
-void	find_max2(t_list **next_p, t_oper **operation)
+void	find_max2(t_list **st, t_oper **op, t_para **param)
 {
 	int		max;
 	int		index;
 	t_list	*stack;
 
 	index = 0;
-	stack = *next_p;
+	stack = *st;
 	max = stack->data;
 	while (stack->next != NULL)
 	{
@@ -68,13 +68,15 @@ void	find_max2(t_list **next_p, t_oper **operation)
 	}
 	if (stack->data > max)
 		max = stack->data;
-	stack = *next_p;
+	stack = *st;
 	while (stack->data != max)
 	{
 		index++;
 		stack = stack->next;
 	}
-	place_max_at_top(next_p, index, operation);
+	if ((*op)->print == -1)
+		ft_print_choice(2, param);
+	place_max_at_top(st, index, op);
 }
 
 void	place_max_at_top(t_list **next_p, int index, t_oper **operation)

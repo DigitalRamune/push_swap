@@ -85,7 +85,7 @@ void	sort_to_b(t_list **st_a, t_list **st_b, int max_score, t_oper **op)
 	}
 }
 
-void	ft_medium_alg(t_list **stack_a, t_list **stack_b, t_oper **operation)
+void	ft_medium_alg(t_list **st_a, t_list **st_b, t_oper **op, t_para **param)
 {
 	t_list	*current;
 	int		max_score;
@@ -93,9 +93,9 @@ void	ft_medium_alg(t_list **stack_a, t_list **stack_b, t_oper **operation)
 	int		maxdata;
 	int		bucket;
 
-	current = *stack_a;
-	size = ft_lstsize(*stack_a);
-	maxdata = find_max(stack_a);
+	current = *st_a;
+	size = ft_lstsize(*st_a);
+	maxdata = find_max(st_a);
 	max_score = 0;
 	while (current != NULL)
 	{
@@ -104,12 +104,12 @@ void	ft_medium_alg(t_list **stack_a, t_list **stack_b, t_oper **operation)
 			max_score = bucket;
 		current = current->next;
 	}
-	sort_to_b(stack_a, stack_b, max_score, operation);
-	while (ft_lstsize(*stack_a) > 0)
-		ft_push(stack_a, stack_b, operation, 1);
-	while (ft_lstsize(*stack_b) > 0)
+	sort_to_b(st_a, st_b, max_score, op);
+	while (ft_lstsize(*st_a) > 0)
+		ft_push(st_a, st_b, op, 1);
+	while (ft_lstsize(*st_b) > 0)
 	{
-		find_max2(stack_b, operation);
-		ft_push(stack_b, stack_a, operation, 0);
+		find_max2(st_b, op, param);
+		ft_push(st_b, st_a, op, 0);
 	}
 }

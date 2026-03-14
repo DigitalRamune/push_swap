@@ -63,10 +63,10 @@ void	set_alg(t_para **param, t_list **stack_a, t_list **stack_b, t_oper **op)
 		ft_radix(stack_a, stack_b, op, param);
 	}
 	else if ((*param)->medium == 1)
-		ft_medium_alg(stack_a, stack_b, op);
+		ft_medium_alg(stack_a, stack_b, op, param);
 	else if ((*param)->simple == 1)
 		ft_simple_alg(stack_a, stack_b, op, param);
-	else if ((*param)->adaptiv == 1)
+	else if ((*param)->adaptiv == 1 || (*param)->adaptiv == 2)
 	{
 		ft_adaptive(param, stack_a);
 		set_alg(param, stack_a, stack_b, op);
