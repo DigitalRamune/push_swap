@@ -19,16 +19,16 @@ void	print_bench(t_para **param, t_oper **op, float disorder)
 	total_ops = (*op)->pa + (*op)->pb + (*op)->ra + (*op)-> rb;
 	total_ops += (*op)->rr + (*op)->rra + (*op)->rrb + (*op)->rrr;
 	total_ops += (*op)->sa + (*op)->sb + (*op)->ss;
-	ft_printf("[bench] disorder : %f%%\n", disorder);
-	ft_printf("[bench] strategy : %s \n", (*param)->choice);
-	ft_printf("[bench] total_ops : %d\n", total_ops);
-	ft_printf("[bench] sa : %d sb : %d ", (*op)->sa, (*op)->sb);
-	ft_printf("ss : %d ", (*op)->ss);
-	ft_printf("pa : %d pb : %d \n", (*op)->pa, (*op)->pb);
-	ft_printf("[bench] ra : %d rb : %d ", (*op)->ra, (*op)->rb);
-	ft_printf("rr : %d ", (*op)->rr);
-	ft_printf("rra : %d rrb : %d ", (*op)->rra, (*op)->rrb);
-	ft_printf("rrr : %d \n", (*op)->rrr);
+	ft_printf(2, "[bench] disorder : %f%%\n", disorder);
+	ft_printf(2, "[bench] strategy : %s \n", (*param)->choice);
+	ft_printf(2, "[bench] total_ops : %d\n", total_ops);
+	ft_printf(2, "[bench] sa : %d sb : %d ", (*op)->sa, (*op)->sb);
+	ft_printf(2, "ss : %d ", (*op)->ss);
+	ft_printf(2, "pa : %d pb : %d \n", (*op)->pa, (*op)->pb);
+	ft_printf(2, "[bench] ra : %d rb : %d ", (*op)->ra, (*op)->rb);
+	ft_printf(2, "rr : %d ", (*op)->rr);
+	ft_printf(2, "rra : %d rrb : %d ", (*op)->rra, (*op)->rrb);
+	ft_printf(2, "rrr : %d \n", (*op)->rrr);
 }
 
 void	ft_bench(t_oper **op, t_para **param, t_list **st_a, t_list **st_b)

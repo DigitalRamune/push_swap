@@ -12,60 +12,60 @@
 
 #include "../libft.h"
 
-size_t	ft_putchar(char c)
+size_t	ft_putchar(int fd, char c)
 {
-	write(1, &c, 1);
+	write(fd, &c, 1);
 	return (1);
 }
 
-size_t	ft_putnbr(int n)
+size_t	ft_putnbr(int fd, int n)
 {
 	int	i;
 
 	i = 0;
 	if (n == -2147483648)
 	{
-		return (write(1, "-2147483648", 11));
+		return (write(fd, "-2147483648", 11));
 	}
 	else if (n < 0)
 	{
 		n = n * -1;
-		write(1, "-", 1);
+		write(fd, "-", 1);
 		i++;
 	}
 	if (n > 9)
-		i = i + ft_putnbr((n / 10));
-	i = i + ft_putchar(((n % 10) + '0'));
+		i = i + ft_putnbr(fd, (n / 10));
+	i = i + ft_putchar(fd, ((n % 10) + '0'));
 	return (i);
 }
 
-size_t	ft_putnbrunsigned(unsigned int n)
+size_t	ft_putnbrunsigned(int fd, unsigned int n)
 {
 	int	i;
 
 	i = 0;
 	if (n > 9)
-		i = i + ft_putnbr((n / 10));
-	i = i + ft_putchar(((n % 10) + '0'));
+		i = i + ft_putnbr(fd, (n / 10));
+	i = i + ft_putchar(fd, ((n % 10) + '0'));
 	return (i);
 }
 
-size_t	ft_putstr(char *s)
+size_t	ft_putstr(int fd, char *s)
 {
 	int	i;
 
 	i = 0;
 	if (s == NULL)
-		return (ft_putstr("(null)"));
+		return (ft_putstr(fd, "(null)"));
 	while (s[i])
 	{
-		write(1, &s[i], 1);
+		write(fd, &s[i], 1);
 		i++;
 	}
 	return (i);
 }
 
-size_t	ft_printhexa(unsigned long long p, int secure)
+size_t	ft_printhexa(int fd, unsigned long long p, int secure)
 {
 	int	resultat;
 
@@ -75,17 +75,17 @@ size_t	ft_printhexa(unsigned long long p, int secure)
 	if (secure == 1)
 	{
 		if (p <= 15)
-			return (ft_putchar("0123456789abcdef"[p]));
-		ft_printhexa(p / 16, 1);
-		ft_printhexa(p % 16, 1);
+			return (ft_putchar(fd, "0123456789abcdef"[p]));
+		ft_printhexa(fd, p / 16, 1);
+		ft_printhexa(fd, p % 16, 1);
 		return (resultat);
 	}
 	if (secure == 2)
 	{
 		if (p <= 15)
-			return (ft_putchar("0123456789ABCDEF"[p]));
-		ft_printhexa(p / 16, 2);
-		ft_printhexa(p % 16, 2);
+			return (ft_putchar(fd, "0123456789ABCDEF"[p]));
+		ft_printhexa(fd, p / 16, 2);
+		ft_printhexa(fd, p % 16, 2);
 		return (resultat);
 	}
 	return (0);

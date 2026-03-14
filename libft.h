@@ -210,14 +210,14 @@ void					ft_push_swap(t_list **st_a, t_list **st_b, t_oper **op,
 							t_para **param);
 int						ft_check_duplicate(t_list **stack_a, int nb);
 
-size_t					ft_printhexa(unsigned long long p, int secure);
-size_t					ft_putstr(char *s);
-size_t					ft_putnbrunsigned(unsigned int n);
-size_t					ft_putnbr(int n);
-size_t					ft_putchar(char c);
-size_t					ft_printadress(void *p);
+size_t					ft_printhexa(int fd, unsigned long long p, int secure);
+size_t					ft_putstr(int fd, char *s);
+size_t					ft_putnbrunsigned(int fd, unsigned int n);
+size_t					ft_putnbr(int fd, int n);
+size_t					ft_putchar(int fd, char c);
+size_t					ft_printadress(int fd, void *p);
 size_t					ft_hexcount(unsigned long long hex);
-int						ft_printfloat(double n);
-int						ft_printf(const char *string, ...);
+int						ft_printfloat(int fd, double n);
+int						ft_printf(int fd, const char *string, ...);
 
 #endif
