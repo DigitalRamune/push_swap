@@ -80,13 +80,13 @@ void	ft_simple_alg(t_list **st_a, t_list **st_b, t_oper **op, t_para **param)
 	while (index < size - 1)
 	{
 		find_min(st_a, op);
-		ft_push(st_a, st_b, op, 0);
+		ft_push(st_a, st_b, op, 1);
 		index++;
 	}
 	index = 0;
 	while (index < size - 1)
 	{
-		ft_push(st_b, st_a, op, 1);
+		ft_push(st_b, st_a, op, 0);
 		index++;
 	}
 }
