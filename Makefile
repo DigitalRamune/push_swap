@@ -22,21 +22,26 @@ SRCS = push_swap.c \
 	ft_disorder.c \
 	libft/ft_strncmp.c \
 	libft/ft_strlen.c \
+	libft/ft_split_tools.c \
 	libft/ft_split.c \
 	libft/ft_lstnew_bonus.c \
 	libft/ft_lstadd_front_bonus.c \
 	libft/ft_atoi.c \
 	libft/ft_lstlast_bonus.c \
 	libft/ft_lstclear_bonus.c \
+	printf/ft_printf.c \
+	printf/utilscount.c \
+	printf/utilsprint.c \
 	operations/ft_push.c \
 	libft/ft_lstsize_bonus.c\
 	simple/ft_simple_alg.c \
 	simple/ft_find.c \
 	medium/ft_medium_alg.c \
 	medium/ft_medium_tools.c \
+	complex/ft_radix_tools.c \
 	complex/ft_radix.c \
 	ft_choice.c \
-	ft_create_stack.c
+	ft_create_stack.c \
 
 OBJS := ${SRCS:.c=.o}
 
