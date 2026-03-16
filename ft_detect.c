@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_detect.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: inaciri <inaciri@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 13:47:46 by ffeder            #+#    #+#             */
-/*   Updated: 2026/03/13 13:52:33 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/16 12:47:36 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,18 @@ int	ft_detect(int argc, char **argv, t_para **param)
 	i = 1;
 	while (i < argc && argv[i][0] == '-' && argv[i][1] == '-')
 	{
-		if (strncmp(argv[i], "--bench", ft_strlen(argv[i])) == 0)
+		if (strcmp(argv[i], "--bench") == 0)
 			(*param)->bench += 1;
-		else if (strncmp(argv[i], "--simple", ft_strlen(argv[i])) == 0)
+		else if (strcmp(argv[i], "--simple") == 0)
 			(*param)->simple = 1;
-		else if (strncmp(argv[i], "--medium", ft_strlen(argv[i])) == 0)
+		else if (strcmp(argv[i], "--medium") == 0)
 			(*param)->medium = 1;
-		else if (strncmp(argv[i], "--complex", ft_strlen(argv[i])) == 0)
+		else if (strcmp(argv[i], "--complex") == 0)
 			(*param)->complex = 1;
-		else if (strncmp(argv[i], "--adaptiv", ft_strlen(argv[i])) == 0)
+		else if (strcmp(argv[i], "--adaptiv") == 0)
 			(*param)->adaptiv = 1;
+		else
+			return (0);
 		i++;
 	}
 	alg_nbr = (*param)->simple + (*param)->medium;

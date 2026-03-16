@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: inaciri <inaciri@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 12:30:58 by ffeder            #+#    #+#             */
-/*   Updated: 2026/03/13 15:20:32 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/16 12:46:36 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ char					*ft_substr(char const *s, unsigned int start,
 void					*ft_memchr(const void *s, int c, size_t n);
 int						ft_memcmp(const void *s1, const void *s2, size_t n);
 int						ft_strncmp(const char *s1, const char *s2, size_t n);
+int						ft_strcmp(const char *s1, const char *s2);
 int						ft_isprint(int c);
 int						ft_isdigit(char *c);
 int						ft_isascii(int c);
