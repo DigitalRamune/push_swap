@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_disorder.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: inaciri <inaciri@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 13:41:26 by inaciri           #+#    #+#             */
-/*   Updated: 2026/03/12 13:19:32 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/17 14:08:26 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ float	compute_disorder(t_list **stack_a)
 void	ft_print_choice(int number, t_para **param)
 {
 	if ((*param)->adaptiv == 1)
-		(*param)->choice = ft_strdup("Adaptiv");
+		(*param)->choice = ft_strdup("Adaptive");
 	else if (number == 1)
 		(*param)->choice = ft_strdup("Simple / O(n^2)");
 	else if (number == 2)

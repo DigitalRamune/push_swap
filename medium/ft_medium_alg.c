@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_medium_alg.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: inaciri <inaciri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: inaciri <inaciri@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 15:10:21 by ffeder            #+#    #+#             */
-/*   Updated: 2026/03/13 14:02:48 by inaciri          ###   ########.fr       */
+/*   Updated: 2026/03/16 14:15:44 by inaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,29 +26,6 @@ int	ft_bucket_no(int data, int size, int max)
 	return (bucket);
 }
 
-void	order_b(t_list **st_a, t_list **st_b, t_oper **op, int opt)
-{
-	int		size;
-	int		temp;
-	t_list	*current;
-
-	current = *st_b;
-	size = ft_lstsize(*st_b);
-	(void)st_a;
-	if (opt == 1 && size)
-	{
-		temp = current->data;
-		while (current != NULL)
-		{
-			temp = current->data;
-			if (temp > current->data)
-				ft_rotate(st_b, op, 1);
-			temp = current->data;
-			current = current->next;
-		}
-	}
-}
-
 void	order_alg(int temp_min_data, t_list **st_a, t_list **st_b, t_oper **op)
 {
 	t_list	*current;
@@ -63,7 +40,6 @@ void	order_alg(int temp_min_data, t_list **st_a, t_list **st_b, t_oper **op)
 	}
 	place_min_at_top(st_a, index, op);
 	ft_push(st_a, st_b, op, 1);
-	order_b(st_a, st_b, op, 1);
 }
 
 void	sort_to_b(t_list **st_a, t_list **st_b, int max_score, t_oper **op)
